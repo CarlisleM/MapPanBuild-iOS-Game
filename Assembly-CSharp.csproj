@@ -54,7 +54,9 @@
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\CameraHandler.cs" />
      <Compile Include="Assets\Scripts\customGrid.cs" />
+     <Compile Include="Assets\Scripts\OpenBuildInterface.cs" />
      <Compile Include="Assets\Scripts\PlacementScript.cs" />
+     <Compile Include="Assets\Scripts\StructureBehaviour.cs" />
      <Compile Include="Assets\Scripts\TemplateScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

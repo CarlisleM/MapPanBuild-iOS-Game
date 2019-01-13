@@ -24,6 +24,9 @@ public class TemplateScript : MonoBehaviour {
 			if (rayHit.collider != null) { // If we dont hit anything
 				if (rayHit.collider.gameObject.tag == "GrassTile" && this.gameObject.tag == "HouseTemplate") {
 					Instantiate (finalObject, transform.position, Quaternion.identity);
+					Debug.Log ("called");
+					StructureBehaviour.currentMoney = StructureBehaviour.currentMoney - 100;
+					Debug.Log (StructureBehaviour.currentMoney);
 				}
 			} else if (rayHit.collider == null && this.gameObject.tag == "GrassTemplate") {
 				Instantiate(finalObject, transform.position, Quaternion.identity);
