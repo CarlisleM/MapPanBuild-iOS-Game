@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4089622990977904}
   - component: {fileID: 212988681678546768}
-  - component: {fileID: 61984629072443964}
+  - component: {fileID: 61403679093992294}
   m_Layer: 8
   m_Name: GrassTile
   m_TagString: GrassTile
@@ -41,7 +41,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61984629072443964
+--- !u!61 &61403679093992294
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

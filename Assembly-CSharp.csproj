@@ -54,8 +54,10 @@
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\CameraHandler.cs" />
      <Compile Include="Assets\Scripts\customGrid.cs" />
+     <Compile Include="Assets\Scripts\DragStructure.cs" />
      <Compile Include="Assets\Scripts\OpenBuildInterface.cs" />
      <Compile Include="Assets\Scripts\PlacementScript.cs" />
+     <Compile Include="Assets\Scripts\SceneHandler.cs" />
      <Compile Include="Assets\Scripts\StructureBehaviour.cs" />
      <Compile Include="Assets\Scripts\TemplateScript.cs" />
  <Reference Include="UnityEngine.UI">
