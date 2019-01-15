@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class StructureBehaviour : MonoBehaviour {
 	
+
+    // Able to buy more land
+    // Costs more as you get more land ie after 10 new blocks of land costs 100 per block instead of 50 (this is done to slow down your expansion rate)
+
+
 	public static int currentLevel = 1;
 	public static int currentMoney = 100;
 

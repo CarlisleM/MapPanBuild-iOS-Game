@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212781048422951866}
   - component: {fileID: 114895844022568372}
   - component: {fileID: 114375925903797356}
-  - component: {fileID: 61299911527426026}
+  - component: {fileID: 61971125230318558}
   m_Layer: 0
   m_Name: GrassTemplate
   m_TagString: GrassTemplate
@@ -43,7 +43,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61299911527426026
+--- !u!61 &61971125230318558
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -66,7 +66,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &114375925903797356
 MonoBehaviour:
