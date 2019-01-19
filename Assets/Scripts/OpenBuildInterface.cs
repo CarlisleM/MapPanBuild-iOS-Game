@@ -1,31 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OpenBuildInterface : MonoBehaviour {
 
-	public GameObject Panel;
-	public GameObject Cancel_Place_Panel;
-	public GameObject Button;
-	public GameObject Button1;
-	public GameObject Button2;
-	public GameObject Button3;
+	public GameObject BuildUIPanel;
+	public GameObject PlaceCancelPanel;
+	public GameObject BuildUI;
+	public GameObject Ground;
+	public GameObject Farm;
+	public GameObject TownCenter;
 	public GameObject Place;
 	public GameObject Cancel;
 
 	public void buidlingSelected()
     {
         // Disable all other UI buttons except cancel/place
-		Button.SetActive(false);
-		Button1.SetActive(false);
-		Button2.SetActive(false);
-        Cancel_Place_Panel.SetActive(true);
+        BuildUI.SetActive(false);
+		Ground.SetActive(false);
+		Farm.SetActive(false);
+        PlaceCancelPanel.SetActive(true);
 	}
-
-
 
 	public void cancel()
     {
+
+        GameObject.Find("Main Camera").GetComponent<CameraHandler>().enabled = true;
 
         // Destroy whatever object is currenlty selected 
         GameObject go = GameObject.Find(PlacementScript.currentlySelectedObject);
@@ -34,10 +35,10 @@ public class OpenBuildInterface : MonoBehaviour {
             Destroy(go.gameObject);
         }
 
-        Button.SetActive (true);
-		Button1.SetActive (true);
-		Button2.SetActive (true);
-        Cancel_Place_Panel.SetActive(false);
+        BuildUI.SetActive (true);
+		Ground.SetActive (true);
+		Farm.SetActive (true);
+        PlaceCancelPanel.SetActive(false);
     }
 
 	public void place()
@@ -45,26 +46,41 @@ public class OpenBuildInterface : MonoBehaviour {
 
 	}
 
-    // Display all UI structures avaialble for current skill level
-	public void OpenPanel() 
+    private void Update()
     {
-		if (Panel != null)
+      //  Debug.Log(StructureBehaviour.thingyCount);
+        // If farm capacity for the players current level is not yet reached
+        if (StructureBehaviour.thingyCount >= StructureBehaviour.level1.Farm_limit)
         {
-			bool isActive = Panel.activeSelf;
-			Panel.SetActive (!isActive);
+            //                Debug.Log(StructureBehaviour.thingyCount);
+            Ground.GetComponent<Button>().interactable = false;
+        } else
+        {
+            Ground.GetComponent<Button>().interactable = true;
+        }
+    }
+
+    // Display all UI structures avaialble for current skill level
+    public void OpenPanel() 
+    {
+		if (BuildUIPanel != null)
+        {
+			bool isActive = BuildUIPanel.activeSelf;
+            BuildUIPanel.SetActive (!isActive);
 		}
 
 		// Change UI based on the players level
-		if (StructureBehaviour.currentLevel == 1 && StructureBehaviour.thingyCount < StructureBehaviour.level1.Farm_limit)
+		if (StructureBehaviour.currentLevel == 1)
         {
-			Button1.SetActive(true);
-			Button2.SetActive(true);
+            Ground.SetActive(true);
+            Farm.SetActive(true);
+            
 		}
         else if (StructureBehaviour.currentLevel == 2)
         {
-            Button1.SetActive(true);
-            Button2.SetActive(true);
-            Button3.SetActive(true);
+            Ground.SetActive(true);
+            Farm.SetActive(true);
+            TownCenter.SetActive(true);
         }
         else if (StructureBehaviour.currentLevel == 3)
         {

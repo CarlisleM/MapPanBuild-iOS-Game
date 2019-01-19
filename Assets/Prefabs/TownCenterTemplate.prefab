@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212131840049950448}
   - component: {fileID: 114967090073250074}
   m_Layer: 0
-  m_Name: Building2Template
+  m_Name: TownCenterTemplate
   m_TagString: HouseTemplate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,9 +53,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finalObject: {fileID: 0}
+  finalObject2: {fileID: 0}
   allTilesLayer:
     serializedVersion: 2
     m_Bits: 0
+  Panel: {fileID: 0}
+  Cancel_Place_Panel: {fileID: 0}
+  Button: {fileID: 0}
+  Button1: {fileID: 0}
+  Button2: {fileID: 0}
+  Button3: {fileID: 0}
+  Place: {fileID: 0}
+  Cancel: {fileID: 0}
 --- !u!212 &212131840049950448
 SpriteRenderer:
   m_ObjectHideFlags: 1

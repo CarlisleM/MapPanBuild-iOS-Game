@@ -10,8 +10,8 @@ public class CameraHandler : MonoBehaviour {
 	private static readonly float ZoomSpeedMouse = 0.5f;
 
 	// Limit Movement
-	private static readonly float[] BoundsX = new float[]{-10f, 5f};
-	private static readonly float[] BoundsZ = new float[]{-18f, -4f};	
+	private static readonly float[] BoundsX = new float[]{-5f, 5f};
+	private static readonly float[] BoundsY = new float[]{-3f, 3f};	
 	private static readonly float[] ZoomBounds = new float[]{10f, 85f};
 
 	private Camera cam; // Reference to the camera
@@ -20,7 +20,7 @@ public class CameraHandler : MonoBehaviour {
 	private int panFingerId; // tracks the ID of the finger being used to pan the camera, in touch-mode only. 
 
 	private bool wasZoomingLastFrame; // is used in touch-mode only to determine if the camera was being zoomed in the last frame.
-	private Vector2[] lastZoomPositions; // like the lastPanPosition, tracks the location of the user’s fingers during the last frame where they were zooming the camera.
+	private Vector3[] lastZoomPositions; // like the lastPanPosition, tracks the location of the user’s fingers during the last frame where they were zooming the camera.
 
 	void Awake() {
 		cam = GetComponent<Camera>(); // Get reference to camera
@@ -59,15 +59,15 @@ public class CameraHandler : MonoBehaviour {
 			break;
 
 		case 2: // Zooming
-			Vector2[] newPositions = new Vector2[]{Input.GetTouch(0).position, Input.GetTouch(1).position};
+			Vector3[] newPositions = new Vector3[]{Input.GetTouch(0).position, Input.GetTouch(1).position};
 			if (!wasZoomingLastFrame) {
 				lastZoomPositions = newPositions;
 				wasZoomingLastFrame = true;
 			} else {
 				// Zoom based on the distance between the new positions compared to the 
 				// distance between the previous positions.
-				float newDistance = Vector2.Distance(newPositions[0], newPositions[1]);
-				float oldDistance = Vector2.Distance(lastZoomPositions[0], lastZoomPositions[1]);
+				float newDistance = Vector3.Distance(newPositions[0], newPositions[1]);
+				float oldDistance = Vector3.Distance(lastZoomPositions[0], lastZoomPositions[1]);
 				float offset = newDistance - oldDistance;
 
 				ZoomCamera(offset, ZoomSpeedTouch);
@@ -99,7 +99,7 @@ public class CameraHandler : MonoBehaviour {
 	void PanCamera(Vector3 newPanPosition) {
 		// Determine how much to move the camera
 		Vector3 offset = cam.ScreenToViewportPoint(lastPanPosition - newPanPosition);
-		Vector3 move = new Vector3(offset.x * PanSpeed, 0, offset.y * PanSpeed);
+		Vector3 move = new Vector3(offset.x * PanSpeed, offset.y * PanSpeed, 0);
 
 		// Perform the movement
 		transform.Translate(move, Space.World);  
@@ -107,7 +107,7 @@ public class CameraHandler : MonoBehaviour {
 		// Ensure the camera remains within bounds.
 		Vector3 pos = transform.position;
 		pos.x = Mathf.Clamp(transform.position.x, BoundsX[0], BoundsX[1]);
-		pos.z = Mathf.Clamp(transform.position.z, BoundsZ[0], BoundsZ[1]);
+		pos.y = Mathf.Clamp(transform.position.y, BoundsY[0], BoundsY[1]);
 		transform.position = pos;
 
 		// Cache the position
@@ -119,7 +119,8 @@ public class CameraHandler : MonoBehaviour {
 			return;
 		}
 
-		cam.fieldOfView = Mathf.Clamp(cam.fieldOfView - (offset * speed), ZoomBounds[0], ZoomBounds[1]);
-	}
+		cam.fieldOfView = Mathf.Clamp(cam.fieldOfView - (offset * speed), ZoomBounds[1], ZoomBounds[0]);
+        // 		cam.fieldOfView = Mathf.Clamp(cam.fieldOfView - (offset * speed), ZoomBounds[0], ZoomBounds[1]);
+    }
 
 }

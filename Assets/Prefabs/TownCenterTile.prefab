@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 61167272802366678}
   - component: {fileID: 212881747968694910}
   m_Layer: 9
-  m_Name: Building2Tile
+  m_Name: TownCenterTile
   m_TagString: HouseTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

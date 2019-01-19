@@ -13,12 +13,14 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectGenerator>VSTU</UnityProjectGenerator>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.1.1f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -87,10 +89,11 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\CameraHandler.cs" />
-    <Compile Include="Assets\Scripts\customGrid.cs" />
     <Compile Include="Assets\Scripts\DragStructure.cs" />
+    <Compile Include="Assets\Scripts\FarmIncome.cs" />
     <Compile Include="Assets\Scripts\OpenBuildInterface.cs" />
     <Compile Include="Assets\Scripts\PlacementScript.cs" />
+    <Compile Include="Assets\Scripts\PlacingStructureCamera.cs" />
     <Compile Include="Assets\Scripts\SceneHandler.cs" />
     <Compile Include="Assets\Scripts\StructureBehaviour.cs" />
     <Compile Include="Assets\Scripts\TemplateScript.cs" />
