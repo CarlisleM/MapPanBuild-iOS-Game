@@ -27,13 +27,10 @@ public class StructureBehaviour : MonoBehaviour {
 	// Structure containing all the level limitations
 	public struct StructureLimits
     {
-        //Variable declaration
-        //Note: I'm explicitly declaring them as public, but they are public by default. You can use private if you choose.
         public int Ground_limit;
         public int Town_center_limit;
 		public int Farm_limit;
         
-		//Constructor (not necessary, but helpful)
 		public StructureLimits(int ground_limit, int town_center_limit, int farm_limit)
         {
             this.Ground_limit = ground_limit;
@@ -49,7 +46,6 @@ public class StructureBehaviour : MonoBehaviour {
 	public static StructureLimits level4 = new StructureLimits(75, 2, 15);
 	public static StructureLimits level5 = new StructureLimits(100, 3, 20);
 
-    // Update is called once per frame
     void Update()
     {
 
