@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+
+
 public class PlacementScript : MonoBehaviour {
 
     [SerializeField]
     private GameObject Ground;
     [SerializeField]
-	private GameObject GrassTemplate; 
-	[SerializeField]
-	private GameObject HouseTemplate;
-	[SerializeField]
-	private GameObject Building2Template;
+    private GameObject GroundPlacer;
+    [SerializeField]
+    private GameObject FarmPlacer;
+    [SerializeField]
+    private GameObject TownCenterPlacer;
 
     public GameObject MainCamera;
     public GameObject StructureCamera;
@@ -22,7 +24,7 @@ public class PlacementScript : MonoBehaviour {
     private Vector2 spawnPos;
 
     private bool isAnObjectSelected = false;
-	public static string currentlySelectedObject;
+    public static string currentlySelectedObject;
 
     public static int counter = 0;
 
@@ -34,43 +36,38 @@ public class PlacementScript : MonoBehaviour {
     {
         if (StructureBehaviour.gameStatus == "Beginning")
         {
-            testSpawn = new Vector2(500, 500);
-            GameObject initialTemplate = GameObject.Find("GrassTemplate(Clone)"); // Find currently selected object
-            if (initialTemplate == null)
-            {
-                Debug.Log("Instantiated 3");
-                Instantiate(GrassTemplate, testSpawn, Quaternion.identity); // Have to destroy this
-            }
+            currentlySelectedObject = "GroundPlacer(Clone)";
         }
     }
 
     private void Update()
     {
-        TemplateScript myInstance = Place.GetComponent <TemplateScript> ();
+        PlaceStructures myInstance = Place.GetComponent<PlaceStructures>();
 
         if (Input.GetMouseButtonDown(0) && counter < 20)
         {
-         myInstance.placeGrass();        
+            myInstance.decisionMaker();
         }
+
     }
 
     public void undo()
     {
-        if (TemplateScript.groundInstances.Count > 0)
-        {
-            Destroy(TemplateScript.groundInstances[counter - 1]);
-            TemplateScript.groundInstances.Remove(TemplateScript.groundInstances[PlacementScript.counter - 1]);
-        }
+        //if (PlaceStructures.groundInstances.Count > 0)
+        //{
+        //    Destroy(PlaceStructures.groundInstances[counter - 1]);
+        //    PlaceStructures.groundInstances.Remove(PlaceStructures.groundInstances[PlacementScript.counter - 1]);
+        //}
 
         if (counter > 0)
         {
             counter--;
-            
         }
     }
-    
+
     public void createGrass()
     {
+        Debug.Log("Check 4");
         GameObject.Find("Main Camera").GetComponent<CameraHandler>().enabled = false;
         // MainCamera.SetActive(false);
         // StructureCamera.SetActive(true);
@@ -81,10 +78,9 @@ public class PlacementScript : MonoBehaviour {
         {
 			Destroy (go.gameObject); // Destroy currently selected object
 		}
-		currentlySelectedObject = "GrassTemplate(Clone)"; // Set new currently selected object
+		currentlySelectedObject = "GroundPlacer(Clone)"; // Set new currently selected object
         spawnPos = new Vector2(6, 0);
-        Debug.Log("Instantiated 2");
-        Instantiate(GrassTemplate, spawnPos, Quaternion.identity);
+        Instantiate(GroundPlacer, spawnPos, Quaternion.identity);
     }
 
 	public void createFarm()
@@ -96,10 +92,10 @@ public class PlacementScript : MonoBehaviour {
         {
 			Destroy (go.gameObject);
 		}
-		currentlySelectedObject = "HouseTemplate(Clone)";
+		currentlySelectedObject = "FarmPlacer(Clone)";
         spawnPos = new Vector2(6, 0);
 
-        Instantiate(HouseTemplate, spawnPos, Quaternion.identity);
+        Instantiate(FarmPlacer, spawnPos, Quaternion.identity);
 
         // Cancel after placed
 
@@ -113,8 +109,8 @@ public class PlacementScript : MonoBehaviour {
         {
 			Destroy (go.gameObject);
 		}
-		currentlySelectedObject = "Building2Template(Clone)";
-        Instantiate (Building2Template);
+		currentlySelectedObject = "TownCenterPlacer(Clone)";
+        Instantiate (TownCenterPlacer);
 	}
     
 }

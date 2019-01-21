@@ -10,8 +10,8 @@ public class CameraHandler : MonoBehaviour {
 	private static readonly float ZoomSpeedMouse = 0.5f;
 
 	// Limit Movement
-	private static readonly float[] BoundsX = new float[]{-5f, 5f};
-	private static readonly float[] BoundsY = new float[]{-3f, 3f};	
+	private static readonly float[] BoundsX = new float[]{0f, 10f};
+	private static readonly float[] BoundsY = new float[]{1f, 7.5f};	
 	private static readonly float[] ZoomBounds = new float[]{10f, 85f};
 
 	private Camera cam; // Reference to the camera

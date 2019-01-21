@@ -49,34 +49,16 @@ public class StructureBehaviour : MonoBehaviour {
     void Update()
     {
 
-        for (int i = 0; i < TemplateScript.farmInstances.Count; i++)
-        {
-
-            FarmIncome farmIncomeScript = TemplateScript.farmInstances[i].GetComponent<FarmIncome>();
-
-       //     currentMoney = currentMoney + FarmIncome.thirst;
-       //     Debug.Log(StructureBehaviour.currentMoney);
-       //     FarmIncome.thirst = 0;
-
-            /*
-            Debug.Log(farmIncomeScript.thirst);
-            if (farmIncomeScript.thirst == 100)
-            {
-                Debug.Log("Entered");
-                farmIncomeScript.thirst = 0;
-            }
-            */
-
-        }
-
-
-        //    Debug.Log(PlacementScript.counter);
-
+        //for (int i = 0; i < PlaceStructures.farmInstances.Count; i++)
+        //{ 
+        //    FarmIncome farmIncomeScript = PlaceStructures.farmInstances[i].GetComponent<FarmIncome>();
+        //}
+        
         if (PlacementScript.counter == 20)
         {
             if (gameStatus == "Beginning")
             {
-                GameObject go = GameObject.Find("GrassTemplate(Clone)"); // Find currently selected object
+                GameObject go = GameObject.Find("GroundPlacer(Clone)"); // Find currently selected object
                 if (go)
                 {
                     Destroy(go.gameObject); // Destroy currently selected object
@@ -91,17 +73,12 @@ public class StructureBehaviour : MonoBehaviour {
             Blocker2.SetActive(false);
             //   UICanvas.SetActive(true);
         }
-
-        if (currentLevel == 1)
-        {
-
-        }
-
+        
         // Farm Structure Stuff
-        if (GameObject.Find("GrassTile(Clone)") != null)
+        if (GameObject.Find("GroundTile(Clone)") != null)
         {   // If a farm exists
             // Count the number of farms
-            GameObject[] thingyToFind = GameObject.FindGameObjectsWithTag("GrassTile");
+            GameObject[] thingyToFind = GameObject.FindGameObjectsWithTag("GroundTile");
             thingyCount = thingyToFind.Length - 24; // Number of tiles minus the starting titles that already exist
 
         }
@@ -111,13 +88,6 @@ public class StructureBehaviour : MonoBehaviour {
         if ((GameObject.Find("TownCenter(Clone)") != null) && (GameObject.Find("Farm(Clone)") != null) && currentMoney >= 1000 && currentLevel == 1) // Level 2 = $1000 + at least one farm + at least one town center
         {
             Debug.Log("You are able to upgrade to the next level.");
-            // Now able to upgrade
-            /*
-            if (clicked) {
-                currentMoney = currentMoney - 1000;
-                currentLevel = 2;
-            }
-            */
         }
         else if (currentLevel == 2)
         {

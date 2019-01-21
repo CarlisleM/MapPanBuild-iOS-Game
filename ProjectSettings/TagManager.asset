@@ -4,10 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - GrassTemplate
-  - HouseTemplate
-  - GrassTile
-  - HouseTile
+  - GroundTile
+  - FarmTile
+  - TownCenterTile
+  - GroundTileTemplate
+  - FarmTileTemplate
   layers:
   - Default
   - TransparentFX
