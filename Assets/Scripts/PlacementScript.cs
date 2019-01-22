@@ -33,7 +33,7 @@ public class PlacementScript : MonoBehaviour {
     {
         if (StructureBehaviour.gameStatus == "Beginning")
         {
-            currentlySelectedObject = "GroundPlacer(Clone)";
+            currentlySelectedObject = "GroundPlacer";
         }
     }
 
@@ -45,7 +45,6 @@ public class PlacementScript : MonoBehaviour {
         {
             myInstance.decisionMaker();
         }
-
     }
 
     public void undo()
@@ -64,52 +63,53 @@ public class PlacementScript : MonoBehaviour {
 
     public void createGrass()
     {
-        Debug.Log("Check 4");
+        isAnObjectSelected = true;  // An object is selected
         GameObject.Find("Main Camera").GetComponent<CameraHandler>().enabled = false;
         // MainCamera.SetActive(false);
         // StructureCamera.SetActive(true);
-
-        isAnObjectSelected = true;  // An object is selected
+        
         GameObject go = GameObject.Find (currentlySelectedObject); // Find currently selected object
 		if (go)
         {
 			Destroy (go.gameObject); // Destroy currently selected object
 		}
-		currentlySelectedObject = "GroundPlacer(Clone)"; // Set new currently selected object
-        spawnPos = new Vector2(6, 0);
-        Instantiate(GroundPlacer, spawnPos, Quaternion.identity);
+
+        currentlySelectedObject = "GroundPlacer"; // Set new currently selected object
+        spawnPos = new Vector2(9, 6);
+        Instantiate(Resources.Load("GroundPlacer"), spawnPos, Quaternion.identity);
     }
 
 	public void createFarm()
     {
-        GameObject.Find("Main Camera").GetComponent<CameraHandler>().enabled = false;
         isAnObjectSelected = true;
+
+        GameObject.Find("Main Camera").GetComponent<CameraHandler>().enabled = false;
+        
 		GameObject go = GameObject.Find (currentlySelectedObject);
 		if (go)
         {
 			Destroy (go.gameObject);
 		}
-		currentlySelectedObject = "FarmPlacer(Clone)";
-        spawnPos = new Vector2(6, 0);
 
-        Instantiate(FarmPlacer, spawnPos, Quaternion.identity);
+        currentlySelectedObject = "FarmPlacer";
+        spawnPos = new Vector2(9, 6);
+
+        Instantiate(Resources.Load("FarmPlacer"), spawnPos, Quaternion.identity);
 
         // Cancel after placed
-
     }
 
 	public void createTownCenter()
     {
 		isAnObjectSelected = true;
+
 		GameObject go = GameObject.Find (currentlySelectedObject);
 		if (go)
         {
 			Destroy (go.gameObject);
 		}
-		currentlySelectedObject = "TownCenterPlacer(Clone)";
-        Instantiate (TownCenterPlacer);
-	}
-    
+
+		currentlySelectedObject = "TownCenterPlacer";
+        Instantiate(Resources.Load("TownCenterPlacer"), spawnPos, Quaternion.identity);
+    }    
 }
-
-

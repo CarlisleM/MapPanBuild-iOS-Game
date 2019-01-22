@@ -29,6 +29,8 @@ public class PlaceStructures : MonoBehaviour {
     {
         if (gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == 1)
         {
+            Debug.Log("Entered");
+            Debug.Log(gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y]);
             FarmClass.createFarm(spawnPos);
             StructureBehaviour.currentMoney = StructureBehaviour.currentMoney - 100;
         }
@@ -43,40 +45,10 @@ public class PlaceStructures : MonoBehaviour {
         }
     }
 
-    public void decisionMaker()
+    void destroyPlacer()
     {
-
-        Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        if (StructureBehaviour.gameStatus == "Beginning")
-        {
-            spawnPos = new Vector2(Mathf.Round(worldPoint.x), Mathf.Round(worldPoint.y));
-        }
-        else
-        {
-            spawnPos = GameObject.Find(PlacementScript.currentlySelectedObject).transform.position;
-        }
-
-        // Determine which structure to place
-        if (PlacementScript.currentlySelectedObject == "GroundPlacer(Clone)")
-        {
-            placeGround();
-        }
-        else if (PlacementScript.currentlySelectedObject == "FarmPlacer(Clone)")
-        {
-            placeFarm();
-        }
-        else if (PlacementScript.currentlySelectedObject == "TownCenterPlacer(Clone)")
-        {
-            placeTownCenter();
-        }
-        else
-        {
-            // Nothing
-        }
-
         // Destroy template and return to the structure UI
-        GameObject go = GameObject.Find(PlacementScript.currentlySelectedObject); // Find currently selected object
+        GameObject go = GameObject.Find(PlacementScript.currentlySelectedObject + "(Clone)"); // Find currently selected object
         if (go)
         {
             Destroy(go.gameObject); // Destroy currently selected object
@@ -85,6 +57,41 @@ public class PlaceStructures : MonoBehaviour {
             Button1.SetActive(true);
             Button2.SetActive(true);
             Cancel_Place_Panel.SetActive(false);
+        }
+    }
+
+    public void decisionMaker()
+    {
+        Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (StructureBehaviour.gameStatus == "Beginning")
+        {
+            spawnPos = new Vector2(Mathf.Round(worldPoint.x), Mathf.Round(worldPoint.y));
+        }
+        else
+        {
+            spawnPos = GameObject.Find(PlacementScript.currentlySelectedObject+"(Clone)").transform.position;
+        }
+
+        // Determine which structure to place
+        if (PlacementScript.currentlySelectedObject == "GroundPlacer" && gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == 0)
+        {
+            placeGround();
+            destroyPlacer();
+        }
+        else if (PlacementScript.currentlySelectedObject == "FarmPlacer" && gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == 1)
+        {
+            placeFarm();
+            destroyPlacer();
+        }
+        else if (PlacementScript.currentlySelectedObject == "TownCenterPlacer" && gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == 1)
+        {
+            placeTownCenter(); 
+            destroyPlacer();
+        }
+        else
+        {
+            // Nothing
         }
     }
 
