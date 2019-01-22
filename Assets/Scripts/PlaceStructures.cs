@@ -5,7 +5,8 @@ using System.Collections;
 public class PlaceStructures : MonoBehaviour {
 
     private Vector2 spawnPos;
-    
+
+    public GameObject PlacementManager;
     public GameObject Panel;
     public GameObject Cancel_Place_Panel;
     public GameObject Button;
@@ -19,9 +20,9 @@ public class PlaceStructures : MonoBehaviour {
     {
         if (gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == 0)
         {
-            GroundClass.createGround(spawnPos);
-            StructureBehaviour.currentMoney = StructureBehaviour.currentMoney - 25;
-            PlacementScript.counter++;
+            GameObject ScriptObject = GameObject.Find("ScriptObject");
+            GroundClass groundScript = ScriptObject.GetComponent<GroundClass>();
+            groundScript.createGround(spawnPos);
         }
     }
 
@@ -29,9 +30,7 @@ public class PlaceStructures : MonoBehaviour {
     {
         if (gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == 1)
         {
-            Debug.Log(gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y]);
             FarmClass.createFarm(spawnPos);
-            StructureBehaviour.currentMoney = StructureBehaviour.currentMoney - 100;
         }
     }
 
@@ -40,7 +39,6 @@ public class PlaceStructures : MonoBehaviour {
         if (gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == 1)
         {
             TownCenterClass.createTownCenter(spawnPos);
-            StructureBehaviour.currentMoney = StructureBehaviour.currentMoney - 500;
         }
     }
 

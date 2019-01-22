@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TownCenterClass : MonoBehaviour {
 
+    public static int townCenterCount;
+
     public class TownCenter
     {
         public int xPosition;
@@ -22,6 +24,8 @@ public class TownCenterClass : MonoBehaviour {
         TownCenter groundTile = new TownCenter((int)spawnPos.x, (int)spawnPos.y);
         gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] = 2;
         Instantiate(Resources.Load("TownCenterTile"), spawnPos, Quaternion.identity);
+        StructureBehaviour.currentMoney = StructureBehaviour.currentMoney - 500;
+        townCenterCount++;
     }
 
 }

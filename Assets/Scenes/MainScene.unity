@@ -327,6 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cda367830cc4f114da44faa57224f68b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlacementManager: {fileID: 0}
   Panel: {fileID: 1105337685}
   Cancel_Place_Panel: {fileID: 1671657460}
   Button: {fileID: 733112351}
@@ -1136,7 +1137,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 614671347}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69d617a9b2f3ea148934ce73f24324c7, type: 3}
   m_Name: 
@@ -2207,8 +2208,8 @@ GameObject:
   - component: {fileID: 1438808200}
   - component: {fileID: 1438808199}
   - component: {fileID: 1438808198}
-  - component: {fileID: 1438808201}
   - component: {fileID: 1438808202}
+  - component: {fileID: 1438808201}
   m_Layer: 5
   m_Name: Ground
   m_TagString: Untagged
@@ -2275,7 +2276,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1438808201}
-        m_MethodName: createGrass
+        m_MethodName: createGround
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2337,19 +2338,19 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1438808196}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69d617a9b2f3ea148934ce73f24324c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ground: {fileID: 1438808196}
+  Ground: {fileID: 0}
   GroundPlacer: {fileID: 0}
   FarmPlacer: {fileID: 0}
   TownCenterPlacer: {fileID: 0}
-  MainCamera: {fileID: 408061387}
-  StructureCamera: {fileID: 749430230}
-  Place: {fileID: 301140364}
-  UndoButton: {fileID: 1426078219}
+  MainCamera: {fileID: 0}
+  StructureCamera: {fileID: 0}
+  Place: {fileID: 0}
+  UndoButton: {fileID: 0}
 --- !u!114 &1438808202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2789,7 +2790,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1849622398}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69d617a9b2f3ea148934ce73f24324c7, type: 3}
   m_Name: 
@@ -3083,8 +3084,9 @@ GameObject:
   - component: {fileID: 2101723258}
   - component: {fileID: 2101723260}
   - component: {fileID: 2101723261}
+  - component: {fileID: 2101723262}
   m_Layer: 0
-  m_Name: PlacementManager
+  m_Name: ScriptObject
   m_TagString: GroundTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3148,7 +3150,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cb94967f026d8040809142d212daa50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thirst: 0
-  allTilesLayer:
-    serializedVersion: 2
-    m_Bits: 512
+  money: 0
+--- !u!114 &2101723262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2101723257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34c790cb763d4664a9ef1e966acc2b6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

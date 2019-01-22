@@ -25,8 +25,6 @@ public class PlacementScript : MonoBehaviour {
     private bool isAnObjectSelected = false;
     public static string currentlySelectedObject;
 
-    public static int counter = 0;
-
     public GameObject UndoButton;
 
     private void Start()
@@ -40,8 +38,8 @@ public class PlacementScript : MonoBehaviour {
     private void Update()
     {
         PlaceStructures myInstance = Place.GetComponent<PlaceStructures>();
-
-        if (Input.GetMouseButtonDown(0) && counter < 20)
+  
+        if (Input.GetMouseButtonDown(0) && GroundClass.groundCount < 20)
         {
             myInstance.decisionMaker();
         }
@@ -49,21 +47,22 @@ public class PlacementScript : MonoBehaviour {
 
     public void undo()
     {
-        //if (PlaceStructures.groundInstances.Count > 0)
-        //{
-        //    Destroy(PlaceStructures.groundInstances[counter - 1]);
-        //    PlaceStructures.groundInstances.Remove(PlaceStructures.groundInstances[PlacementScript.counter - 1]);
-        //}
-
-        if (counter > 0)
+        if (GroundClass.groundCount > 0)
         {
-            counter--;
+            GameObject ScriptObject = GameObject.Find("ScriptObject");
+            GroundClass groundScript = ScriptObject.GetComponent<GroundClass>();
+            groundScript.createGround(spawnPos);
+            Destroy(GroundClass.groundTileList[GroundClass.groundCount-1]);
+            GroundClass.groundTileList.RemoveAt(GroundClass.groundCount-1);
+            GroundClass.groundCount--;
         }
     }
 
-    public void createGrass()
+    public void createGround()
     {
+        Debug.Log("Called grass");
         isAnObjectSelected = true;  // An object is selected
+
         GameObject.Find("Main Camera").GetComponent<CameraHandler>().enabled = false;
         // MainCamera.SetActive(false);
         // StructureCamera.SetActive(true);
@@ -81,6 +80,7 @@ public class PlacementScript : MonoBehaviour {
 
 	public void createFarm()
     {
+        Debug.Log("Called farm");
         isAnObjectSelected = true;
 
         GameObject.Find("Main Camera").GetComponent<CameraHandler>().enabled = false;

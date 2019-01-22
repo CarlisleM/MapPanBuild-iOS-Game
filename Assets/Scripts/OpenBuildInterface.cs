@@ -29,7 +29,7 @@ public class OpenBuildInterface : MonoBehaviour {
         GameObject.Find("Main Camera").GetComponent<CameraHandler>().enabled = true;
 
         // Destroy whatever object is currenlty selected 
-        GameObject go = GameObject.Find(PlacementScript.currentlySelectedObject);
+        GameObject go = GameObject.Find(PlacementScript.currentlySelectedObject+"(Clone)");
         if (go)
         {
             Destroy(go.gameObject);

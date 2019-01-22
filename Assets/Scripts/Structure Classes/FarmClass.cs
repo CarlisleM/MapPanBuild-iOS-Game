@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FarmClass : MonoBehaviour {
 
+    public static int farmCount;
+    
     public class Farm
     {
         public int moneyTimer;
@@ -23,6 +25,8 @@ public class FarmClass : MonoBehaviour {
         Farm farmTile = new Farm(0, (int)spawnPos.x, (int)spawnPos.y);
         gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] = 3;
         Instantiate(Resources.Load("FarmTile"), spawnPos, Quaternion.identity);
+        StructureBehaviour.currentMoney = StructureBehaviour.currentMoney - 100;
+        farmCount++;
     }
 
 }

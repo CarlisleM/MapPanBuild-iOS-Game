@@ -16,7 +16,7 @@ public class StructureBehaviour : MonoBehaviour {
     public GameObject Blocker2;
 
     public static int currentLevel = 1;
-	public static int currentMoney = 100;
+	public static int currentMoney = 600;
 
     int groundLimit = 1;
     int townCenterLimit = 1;
@@ -40,21 +40,20 @@ public class StructureBehaviour : MonoBehaviour {
 	}
 
     // Level limitations - (Ground, Town Centers, Farms)
-    public static StructureLimits level1 = new StructureLimits(25, 1, 2);
-	public static StructureLimits level2 = new StructureLimits(35, 1, 5);
-	public static StructureLimits level3 = new StructureLimits(50, 2, 10);
-	public static StructureLimits level4 = new StructureLimits(75, 2, 15);
-	public static StructureLimits level5 = new StructureLimits(100, 3, 20);
+    public static StructureLimits level1 = new StructureLimits(25, 1, 5);
+	public static StructureLimits level2 = new StructureLimits(35, 1, 10);
+	public static StructureLimits level3 = new StructureLimits(50, 2, 17);
+	public static StructureLimits level4 = new StructureLimits(75, 2, 23);
+	public static StructureLimits level5 = new StructureLimits(100, 3, 30);
     
     void Update()
     {
-
         //for (int i = 0; i < PlaceStructures.farmInstances.Count; i++)
         //{ 
         //    FarmIncome farmIncomeScript = PlaceStructures.farmInstances[i].GetComponent<FarmIncome>();
         //}
         
-        if (PlacementScript.counter == 20)
+        if (GroundClass.groundCount == 20)
         {
             if (gameStatus == "Beginning")
             {
@@ -79,7 +78,7 @@ public class StructureBehaviour : MonoBehaviour {
         {   // If a farm exists
             // Count the number of farms
             GameObject[] thingyToFind = GameObject.FindGameObjectsWithTag("GroundTile");
-            thingyCount = thingyToFind.Length - 24; // Number of tiles minus the starting titles that already exist
+            thingyCount = thingyToFind.Length - 20; // Number of tiles minus the starting titles that already exist
 
         }
 
