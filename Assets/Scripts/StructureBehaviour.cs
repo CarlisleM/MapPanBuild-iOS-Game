@@ -45,7 +45,7 @@ public class StructureBehaviour : MonoBehaviour {
 	public static StructureLimits level3 = new StructureLimits(50, 2, 10);
 	public static StructureLimits level4 = new StructureLimits(75, 2, 15);
 	public static StructureLimits level5 = new StructureLimits(100, 3, 20);
-
+    
     void Update()
     {
 

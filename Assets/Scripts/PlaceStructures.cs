@@ -29,7 +29,6 @@ public class PlaceStructures : MonoBehaviour {
     {
         if (gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == 1)
         {
-            Debug.Log("Entered");
             Debug.Log(gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y]);
             FarmClass.createFarm(spawnPos);
             StructureBehaviour.currentMoney = StructureBehaviour.currentMoney - 100;
