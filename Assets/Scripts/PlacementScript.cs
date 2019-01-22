@@ -18,7 +18,6 @@ public class PlacementScript : MonoBehaviour {
 
     public GameObject MainCamera;
     public GameObject StructureCamera;
-
     public GameObject Place;
 
     private Vector2 spawnPos;
@@ -29,8 +28,6 @@ public class PlacementScript : MonoBehaviour {
     public static int counter = 0;
 
     public GameObject UndoButton;
-
-    private Vector2 testSpawn;
 
     private void Start()
     {

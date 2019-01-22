@@ -846,7 +846,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1976487457829382, guid: 5622db7823f64b644a82304df3c6da47, type: 2}
       propertyPath: m_Name
-      value: GrassTileBottomRight
+      value: GroundTileBottomRight
       objectReference: {fileID: 0}
     - target: {fileID: 212988681678546768, guid: 5622db7823f64b644a82304df3c6da47,
         type: 2}
@@ -1351,7 +1351,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1976487457829382, guid: 5622db7823f64b644a82304df3c6da47, type: 2}
       propertyPath: m_Name
-      value: GrassTileTopRight
+      value: GroundTileTopRight
       objectReference: {fileID: 0}
     - target: {fileID: 212988681678546768, guid: 5622db7823f64b644a82304df3c6da47,
         type: 2}
@@ -2879,7 +2879,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1976487457829382, guid: 5622db7823f64b644a82304df3c6da47, type: 2}
       propertyPath: m_Name
-      value: GrassTileTopLeft
+      value: GroundTileTopLeft
       objectReference: {fileID: 0}
     - target: {fileID: 1976487457829382, guid: 5622db7823f64b644a82304df3c6da47, type: 2}
       propertyPath: m_TagString
@@ -2934,7 +2934,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1976487457829382, guid: 5622db7823f64b644a82304df3c6da47, type: 2}
       propertyPath: m_Name
-      value: GrassTileBottomLeft
+      value: GroundTileBottomLeft
       objectReference: {fileID: 0}
     - target: {fileID: 212988681678546768, guid: 5622db7823f64b644a82304df3c6da47,
         type: 2}

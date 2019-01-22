@@ -19,7 +19,6 @@ public class GroundClass : MonoBehaviour {
 
     public static void createGround(Vector2 spawnPos)
     {
-        Debug.Log("Called Ground Class");
         Ground groundTile = new Ground((int)spawnPos.x, (int)spawnPos.y);
         gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] = 1; 
         Instantiate(Resources.Load("GroundTile"), spawnPos, Quaternion.identity);

@@ -20,7 +20,6 @@ public class FarmClass : MonoBehaviour {
 
     public static void createFarm(Vector2 spawnPos)
     {
-        Debug.Log("Called Farm Class");
         Farm farmTile = new Farm(0, (int)spawnPos.x, (int)spawnPos.y);
         gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] = 3;
         Instantiate(Resources.Load("FarmTile"), spawnPos, Quaternion.identity);
