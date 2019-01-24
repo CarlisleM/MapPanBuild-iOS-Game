@@ -18,6 +18,10 @@ public class StructureBehaviour : MonoBehaviour {
     public static int currentLevel = 1;
 	public static int currentMoney = 600;
 
+    public static int currentGroundLimit;
+    public static int currentFarmLimit;
+    public static int currentTownCenterLimit;
+
     int groundLimit = 1;
     int townCenterLimit = 1;
 	int farmLimit = 1;
@@ -40,11 +44,11 @@ public class StructureBehaviour : MonoBehaviour {
 	}
 
     // Level limitations - (Ground, Town Centers, Farms)
-    public static StructureLimits level1 = new StructureLimits(25, 1, 5);
-	public static StructureLimits level2 = new StructureLimits(35, 1, 10);
-	public static StructureLimits level3 = new StructureLimits(50, 2, 17);
-	public static StructureLimits level4 = new StructureLimits(75, 2, 23);
-	public static StructureLimits level5 = new StructureLimits(100, 3, 30);
+    public static StructureLimits level1 = new StructureLimits(25, 1, 2);
+	public static StructureLimits level2 = new StructureLimits(35, 1, 5);
+	public static StructureLimits level3 = new StructureLimits(50, 2, 10);
+	public static StructureLimits level4 = new StructureLimits(75, 2, 17);
+	public static StructureLimits level5 = new StructureLimits(100, 3, 26);
     
     void Update()
     {
@@ -72,39 +76,55 @@ public class StructureBehaviour : MonoBehaviour {
             Blocker2.SetActive(false);
             //   UICanvas.SetActive(true);
         }
-        
-        // Farm Structure Stuff
-        if (GameObject.Find("GroundTile(Clone)") != null)
-        {   // If a farm exists
-            // Count the number of farms
-            GameObject[] thingyToFind = GameObject.FindGameObjectsWithTag("GroundTile");
-            thingyCount = thingyToFind.Length - 20; // Number of tiles minus the starting titles that already exist
-
-        }
 
         // Requirements to upgrade to the next level
-        // Already level 1
-        if ((GameObject.Find("TownCenter(Clone)") != null) && (GameObject.Find("Farm(Clone)") != null) && currentMoney >= 1000 && currentLevel == 1) // Level 2 = $1000 + at least one farm + at least one town center
+        if (currentLevel == 1) // Level 2 = $1000 + at least one farm + at least one town center
         {
-            Debug.Log("You are able to upgrade to the next level.");
+            currentGroundLimit = level1.Ground_limit;
+            currentFarmLimit = level1.Farm_limit;
+            currentTownCenterLimit = level1.Town_center_limit;
+            if ((GameObject.Find("TownCenter(Clone)") != null) && (GameObject.Find("Farm(Clone)") != null) && currentMoney >= 1000)
+            {
+                Debug.Log("You are able to upgrade to level 2.");
+            }
         }
-        else if (currentLevel == 2)
+        else if (currentLevel == 2 && currentGroundLimit == GroundClass.groundCount && currentFarmLimit == FarmClass.farmCount && currentTownCenterLimit == TownCenterClass.townCenterCount)
         {
-            // Current level is 2
+            currentGroundLimit = level2.Ground_limit;
+            currentFarmLimit = level2.Farm_limit;
+            currentTownCenterLimit = level2.Town_center_limit;
+            if (currentMoney >= 3000 && currentGroundLimit == GroundClass.groundCount && currentFarmLimit == FarmClass.farmCount && currentTownCenterLimit == TownCenterClass.townCenterCount)
+            {
+                Debug.Log("You are able to upgrade to level 3.");
+            }
         }
         else if (currentLevel == 3)
         {
-            // Current level is 3
+            currentGroundLimit = level3.Ground_limit;
+            currentFarmLimit = level3.Farm_limit;
+            currentTownCenterLimit = level3.Town_center_limit;
+            if (currentMoney >= 5000 && currentGroundLimit == GroundClass.groundCount && currentFarmLimit == FarmClass.farmCount && currentTownCenterLimit == TownCenterClass.townCenterCount)
+            {
+                Debug.Log("You are able to upgrade to level 4");
+            }
         }
         else if (currentLevel == 4)
         {
-            // Current level is 4
+            currentGroundLimit = level4.Ground_limit;
+            currentFarmLimit = level4.Farm_limit;
+            currentTownCenterLimit = level4.Town_center_limit;
+            if (currentMoney >= 7000 && currentGroundLimit == GroundClass.groundCount && currentFarmLimit == FarmClass.farmCount && currentTownCenterLimit == TownCenterClass.townCenterCount)
+            {
+                Debug.Log("You are able to upgrade to level 5.");
+            }
         }
         else
         {
-            // Current level is 5
+            currentGroundLimit = level5.Ground_limit;
+            currentFarmLimit = level5.Farm_limit;
+            currentTownCenterLimit = level5.Town_center_limit;
         }
 
-	}
+    }
 
 }

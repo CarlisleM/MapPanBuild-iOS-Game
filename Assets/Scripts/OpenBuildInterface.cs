@@ -25,7 +25,7 @@ public class OpenBuildInterface : MonoBehaviour {
 
 	public void cancel()
     {
-
+        PlacementScript.isAnObjectSelected = false;
         GameObject.Find("Main Camera").GetComponent<CameraHandler>().enabled = true;
 
         // Destroy whatever object is currenlty selected 
@@ -48,16 +48,18 @@ public class OpenBuildInterface : MonoBehaviour {
 
     private void Update()
     {
-      //  Debug.Log(StructureBehaviour.thingyCount);
-        // If farm capacity for the players current level is not yet reached
-        if (StructureBehaviour.thingyCount >= StructureBehaviour.level1.Farm_limit)
-        {
-            //                Debug.Log(StructureBehaviour.thingyCount);
-            Ground.GetComponent<Button>().interactable = false;
-        } else
-        {
-            Ground.GetComponent<Button>().interactable = true;
-        }
+
+
+      ////  Debug.Log(StructureBehaviour.thingyCount);
+      //  // If farm capacity for the players current level is not yet reached
+      //  if (StructureBehaviour.thingyCount >= StructureBehaviour.level1.Farm_limit)
+      //  {
+      //      //                Debug.Log(StructureBehaviour.thingyCount);
+      //      Ground.GetComponent<Button>().interactable = false;
+      //  } else
+      //  {
+      //      Ground.GetComponent<Button>().interactable = true;
+      //  }
     }
 
     // Display all UI structures avaialble for current skill level

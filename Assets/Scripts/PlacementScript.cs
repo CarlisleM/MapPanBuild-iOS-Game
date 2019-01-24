@@ -22,7 +22,7 @@ public class PlacementScript : MonoBehaviour {
 
     private Vector2 spawnPos;
 
-    private bool isAnObjectSelected = false;
+    public static bool isAnObjectSelected = false;
     public static string currentlySelectedObject;
 
     public GameObject UndoButton;
@@ -60,7 +60,6 @@ public class PlacementScript : MonoBehaviour {
 
     public void createGround()
     {
-        Debug.Log("Called grass");
         isAnObjectSelected = true;  // An object is selected
 
         GameObject.Find("Main Camera").GetComponent<CameraHandler>().enabled = false;
@@ -75,12 +74,12 @@ public class PlacementScript : MonoBehaviour {
 
         currentlySelectedObject = "GroundPlacer"; // Set new currently selected object
         spawnPos = new Vector2(9, 6);
+        // if its location on grid is 0 normal sprite else if not 0 then red sprite
         Instantiate(Resources.Load("GroundPlacer"), spawnPos, Quaternion.identity);
     }
 
 	public void createFarm()
     {
-        Debug.Log("Called farm");
         isAnObjectSelected = true;
 
         GameObject.Find("Main Camera").GetComponent<CameraHandler>().enabled = false;
@@ -93,6 +92,8 @@ public class PlacementScript : MonoBehaviour {
 
         currentlySelectedObject = "FarmPlacer";
         spawnPos = new Vector2(9, 6);
+
+        // if its location on grid is 0 normal sprite else if not 0 then red sprite
 
         Instantiate(Resources.Load("FarmPlacer"), spawnPos, Quaternion.identity);
 

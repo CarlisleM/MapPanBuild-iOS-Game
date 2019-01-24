@@ -15,7 +15,7 @@ public class PlaceStructures : MonoBehaviour {
     public GameObject Button3;
     public GameObject Place;
     public GameObject Cancel;
-
+    
     void placeGround()
     {
         if (gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == 0)
@@ -57,6 +57,9 @@ public class PlaceStructures : MonoBehaviour {
         }
     }
 
+    //StructureBehaviour.level1.Farm_limit
+    public int i = 1;
+
     public void decisionMaker()
     {
         Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -71,20 +74,23 @@ public class PlaceStructures : MonoBehaviour {
         }
 
         // Determine which structure to place
-        if (PlacementScript.currentlySelectedObject == "GroundPlacer" && gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == 0)
+        if (PlacementScript.currentlySelectedObject == "GroundPlacer" && gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == 0 && GroundClass.groundCount < StructureBehaviour.currentGroundLimit)
         {
             placeGround();
             destroyPlacer();
+            PlacementScript.isAnObjectSelected = false;
         }
-        else if (PlacementScript.currentlySelectedObject == "FarmPlacer" && gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == 1)
+        else if (PlacementScript.currentlySelectedObject == "FarmPlacer" && gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == 1 && FarmClass.farmCount < StructureBehaviour.currentFarmLimit)
         {
             placeFarm();
             destroyPlacer();
+            PlacementScript.isAnObjectSelected = false;
         }
-        else if (PlacementScript.currentlySelectedObject == "TownCenterPlacer" && gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == 1)
+        else if (PlacementScript.currentlySelectedObject == "TownCenterPlacer" && gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == 1 && TownCenterClass.townCenterCount < StructureBehaviour.currentTownCenterLimit)
         {
             placeTownCenter(); 
             destroyPlacer();
+            PlacementScript.isAnObjectSelected = false;
         }
         else
         {
