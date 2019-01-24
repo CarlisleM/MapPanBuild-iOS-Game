@@ -15,15 +15,121 @@ public class PlaceStructures : MonoBehaviour {
     public GameObject Button3;
     public GameObject Place;
     public GameObject Cancel;
+
+    public string valid = "Not joined";
     
     void placeGround()
     {
-        if (gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == 0)
+        Debug.Log("x is: " + spawnPos.x + " y is: " + spawnPos.y);
+        // Check if there is a ground tile next to it
+        if (spawnPos.x > 0 && spawnPos.x < 9)
+        {
+            // Not against Left or right border
+            if (spawnPos.y > 0 && spawnPos.y < 9)
+            {
+                // Not against left, right, top or bottom boundary
+                if (gridTracker.tileLocation[(int)spawnPos.x-1, (int)spawnPos.y] == 1 || gridTracker.tileLocation[(int)spawnPos.x+1, (int)spawnPos.y] == 1 || gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y+1] == 1 || gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y-1] == 1)
+                {
+                    // Not against any boundaries
+                    Debug.Log("Not against any boundaries");
+                    valid = "joined";
+                }
+            }
+            else
+            {
+                if (spawnPos.y == 0)
+                {
+                    if (gridTracker.tileLocation[(int)spawnPos.x-1, (int)spawnPos.y] == 1 || gridTracker.tileLocation[(int)spawnPos.x+1, (int)spawnPos.y] == 1 || gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y+1] == 1)
+                    {
+                        // Bottom boundary
+                        Debug.Log("Bottom boundary");
+                        valid = "joined";
+                    }
+                }
+                else
+                {
+                    if (gridTracker.tileLocation[(int)spawnPos.x-1, (int)spawnPos.y] == 1 || gridTracker.tileLocation[(int)spawnPos.x+1, (int)spawnPos.y] == 1 || gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y-1] == 1)
+                    {
+                        // Top boundary
+                        Debug.Log("Top boundary");
+                        valid = "joined";
+                    }
+                }
+            }
+        }
+        else
+        {
+            // Against left or right boundary and against the top or bottom boundary
+            if (spawnPos.x == 0)
+            {
+                if (spawnPos.y == 0)
+                {
+                    if (gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y+1] == 1 || gridTracker.tileLocation[(int)spawnPos.x+1, (int)spawnPos.y+1] == 1 || gridTracker.tileLocation[(int)spawnPos.x+1, (int)spawnPos.y] == 1)
+                    {
+                        // Bottom left corner
+                        Debug.Log("Bottom left corner");
+                        valid = "joined";
+                    }
+                }
+                else if (spawnPos.y == 9)
+                {
+                    if (gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y-1] == 1 || gridTracker.tileLocation[(int)spawnPos.x+1, (int)spawnPos.y-1] == 1 || gridTracker.tileLocation[(int)spawnPos.x+1, (int)spawnPos.y] == 1)
+                    {
+                        // Top left corner
+                        Debug.Log("Top left corner");
+                        valid = "joined";
+                    }
+                }
+                else
+                {
+                    if (gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y-1] == 1 || gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y+1] == 1 || gridTracker.tileLocation[(int)spawnPos.x+1, (int)spawnPos.y] == 1)
+                    {
+                        // Left boundary
+                        Debug.Log("Left boundary");
+                        valid = "joined";
+                    }
+                }
+            }
+            else
+            {
+                if (spawnPos.y == 0)
+                {
+                    if (gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y+1] == 1 || gridTracker.tileLocation[(int)spawnPos.x-1, (int)spawnPos.y+1] == 1 || gridTracker.tileLocation[(int)spawnPos.x-1, (int)spawnPos.y] == 1)
+                    {
+                        // Bottom right corner
+                        Debug.Log("Bottom right corner");
+                        valid = "joined";
+                    }
+                }
+                else if (spawnPos.y == 9)
+                {
+                    if (gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y-1] == 1 || gridTracker.tileLocation[(int)spawnPos.x-1, (int)spawnPos.y-1] == 1 || gridTracker.tileLocation[(int)spawnPos.x-1, (int)spawnPos.y] == 1)
+                    {
+                        // Top right corner
+                        Debug.Log("Top right corner");
+                        valid = "joined";
+                    }
+                }
+                else
+                {
+                    if (gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y-1] == 1 || gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y+1] == 1 || gridTracker.tileLocation[(int)spawnPos.x-1, (int)spawnPos.y] == 1)
+                    {
+                        // Right boundary
+                        Debug.Log("Right boundary");
+                        valid = "joined";
+                    }
+                }
+            }
+        }
+
+        if (gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == 0 && valid == "joined")
         {
             GameObject ScriptObject = GameObject.Find("ScriptObject");
             GroundClass groundScript = ScriptObject.GetComponent<GroundClass>();
             groundScript.createGround(spawnPos);
         }
+
+        valid = "Not joined";
     }
 
     void placeFarm()
