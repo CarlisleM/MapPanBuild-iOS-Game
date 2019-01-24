@@ -16,7 +16,7 @@ public class PlaceStructures : MonoBehaviour {
     public GameObject Place;
     public GameObject Cancel;
 
-    public string valid = "Not joined";
+    public bool validGridTile = false;
     
     void placeGround()
     {
@@ -32,7 +32,7 @@ public class PlaceStructures : MonoBehaviour {
                 {
                     // Not against any boundaries
                     Debug.Log("Not against any boundaries");
-                    valid = "joined";
+                    validGridTile = true;
                 }
             }
             else
@@ -43,7 +43,7 @@ public class PlaceStructures : MonoBehaviour {
                     {
                         // Bottom boundary
                         Debug.Log("Bottom boundary");
-                        valid = "joined";
+                        validGridTile = true;
                     }
                 }
                 else
@@ -52,14 +52,14 @@ public class PlaceStructures : MonoBehaviour {
                     {
                         // Top boundary
                         Debug.Log("Top boundary");
-                        valid = "joined";
+                        validGridTile = true;
                     }
                 }
             }
         }
         else
         {
-            // Against left or right boundary and against the top or bottom boundary
+            // Against left or right
             if (spawnPos.x == 0)
             {
                 if (spawnPos.y == 0)
@@ -68,7 +68,7 @@ public class PlaceStructures : MonoBehaviour {
                     {
                         // Bottom left corner
                         Debug.Log("Bottom left corner");
-                        valid = "joined";
+                        validGridTile = true;
                     }
                 }
                 else if (spawnPos.y == 9)
@@ -77,7 +77,7 @@ public class PlaceStructures : MonoBehaviour {
                     {
                         // Top left corner
                         Debug.Log("Top left corner");
-                        valid = "joined";
+                        validGridTile = true;
                     }
                 }
                 else
@@ -86,7 +86,7 @@ public class PlaceStructures : MonoBehaviour {
                     {
                         // Left boundary
                         Debug.Log("Left boundary");
-                        valid = "joined";
+                        validGridTile = true;
                     }
                 }
             }
@@ -98,7 +98,7 @@ public class PlaceStructures : MonoBehaviour {
                     {
                         // Bottom right corner
                         Debug.Log("Bottom right corner");
-                        valid = "joined";
+                        validGridTile = true;
                     }
                 }
                 else if (spawnPos.y == 9)
@@ -107,7 +107,7 @@ public class PlaceStructures : MonoBehaviour {
                     {
                         // Top right corner
                         Debug.Log("Top right corner");
-                        valid = "joined";
+                        validGridTile = true;
                     }
                 }
                 else
@@ -116,20 +116,20 @@ public class PlaceStructures : MonoBehaviour {
                     {
                         // Right boundary
                         Debug.Log("Right boundary");
-                        valid = "joined";
+                        validGridTile = true;
                     }
                 }
             }
         }
 
-        if (gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == 0 && valid == "joined")
+        if (gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == 0 && validGridTile == true)
         {
             GameObject ScriptObject = GameObject.Find("ScriptObject");
             GroundClass groundScript = ScriptObject.GetComponent<GroundClass>();
             groundScript.createGround(spawnPos);
         }
 
-        valid = "Not joined";
+        validGridTile = false;
     }
 
     void placeFarm()
@@ -162,10 +162,7 @@ public class PlaceStructures : MonoBehaviour {
             Cancel_Place_Panel.SetActive(false);
         }
     }
-
-    //StructureBehaviour.level1.Farm_limit
-    public int i = 1;
-
+    
     public void decisionMaker()
     {
         Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);

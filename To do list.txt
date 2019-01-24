@@ -1,0 +1,8 @@
+Game 	- if I build a farm do I delete the ground underneath it to improve performance then reinstantiate ground if the farm is deleted
+	- Add functionality to buildings
+	- Get timers working for farms and able to collect money
+	- Object goes from towncenter to farm following optimal route
+	- Camera interpolate when placing an object
+	- Town center occupy 4 spaces
+	- What are my classes doing?
+	- Disable UI buttons when structure limit for current level is reached
