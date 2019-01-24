@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212131840049950448}
   - component: {fileID: 114546256463493228}
   - component: {fileID: 61487149363488308}
+  - component: {fileID: 114507816180791304}
   m_Layer: 0
   m_Name: TownCenterPlacer
   m_TagString: HouseTemplate
@@ -67,6 +68,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114507816180791304
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1451647244442224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9048dcf75db025a46a6c652a6d7919a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StructureValid: {fileID: 21300000, guid: b7c3f52ecaf7b67468815be2d7ad8205, type: 3}
+  StructureNotValid: {fileID: 21300000, guid: 1a0e419f87f406e42ad60034afbdf695, type: 3}
 --- !u!114 &114546256463493228
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -111,7 +125,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d610c886f781666478a9b2b2d3798339, type: 3}
-  m_Color: {r: 0.056660898, g: 0.10042642, b: 0.9632353, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

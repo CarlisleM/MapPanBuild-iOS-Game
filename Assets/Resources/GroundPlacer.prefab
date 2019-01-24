@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212781048422951866}
   - component: {fileID: 114375925903797356}
   - component: {fileID: 61972638502631486}
+  - component: {fileID: 114926556040305060}
   m_Layer: 0
   m_Name: GroundPlacer
   m_TagString: GrassTemplate
@@ -78,6 +79,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3487a079ecdc53440b0e0676cdd144ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114926556040305060
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1372554350257834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9048dcf75db025a46a6c652a6d7919a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StructureValid: {fileID: 21300000, guid: f384de2c09657b04b992c4f810b6f775, type: 3}
+  StructureNotValid: {fileID: 21300000, guid: 1a0e419f87f406e42ad60034afbdf695, type: 3}
+  StructureCantExist: {fileID: 21300000, guid: 746ab76068aa58b48ab07160e93aae4e, type: 3}
 --- !u!212 &212781048422951866
 SpriteRenderer:
   m_ObjectHideFlags: 1
