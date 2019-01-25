@@ -19,10 +19,17 @@ public class DragStructure : MonoBehaviour {
 	}
 
 	void OnMouseDrag() {
-        mousePos = GetMouseWorldPos() + mOffset;
-        transform.position = new Vector2(Mathf.Round(mousePos.x), Mathf.Round(mousePos.y));
         
-        //         transform.position = GetMouseWorldPos() + mOffset;
+        if (PlacementScript.currentlySelectedObject == "TownCenterPlacer")
+        {
+            mousePos = GetMouseWorldPos() - mOffset;
+            transform.position = new Vector2(Mathf.Round(mousePos.x)+0.5f, Mathf.Round(mousePos.y)-0.5f);
+        }
+        else
+        {
+            mousePos = GetMouseWorldPos() + mOffset;
+            transform.position = new Vector2(Mathf.Round(mousePos.x), Mathf.Round(mousePos.y));
+        }
     }
 
 }

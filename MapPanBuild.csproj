@@ -85,9 +85,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BeginningTileCount.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\CameraHandler.cs" />
     <Compile Include="Assets\Scripts\changeTemplateSprite.cs" />
+    <Compile Include="Assets\Scripts\CollectFarmIncome.cs" />
     <Compile Include="Assets\Scripts\currentMoneyScript.cs" />
     <Compile Include="Assets\Scripts\DragStructure.cs" />
     <Compile Include="Assets\Scripts\FarmIncome.cs" />

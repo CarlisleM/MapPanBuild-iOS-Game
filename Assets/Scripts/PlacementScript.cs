@@ -38,7 +38,7 @@ public class PlacementScript : MonoBehaviour {
     private void Update()
     {
         PlaceStructures myInstance = Place.GetComponent<PlaceStructures>();
-  
+
         if (Input.GetMouseButtonDown(0) && GroundClass.groundCount < 20)
         {
             myInstance.decisionMaker();
@@ -74,8 +74,7 @@ public class PlacementScript : MonoBehaviour {
 
         currentlySelectedObject = "GroundPlacer"; // Set new currently selected object
         spawnPos = new Vector2(9, 6);
-        // if its location on grid is 0 normal sprite else if not 0 then red sprite
-        Instantiate(Resources.Load("GroundPlacer"), spawnPos, Quaternion.identity);
+        Instantiate(Resources.Load(currentlySelectedObject), spawnPos, Quaternion.identity);
     }
 
 	public void createFarm()
@@ -92,25 +91,23 @@ public class PlacementScript : MonoBehaviour {
 
         currentlySelectedObject = "FarmPlacer";
         spawnPos = new Vector2(9, 6);
-
-        // if its location on grid is 0 normal sprite else if not 0 then red sprite
-
-        Instantiate(Resources.Load("FarmPlacer"), spawnPos, Quaternion.identity);
-
-        // Cancel after placed
+        Instantiate(Resources.Load(currentlySelectedObject), spawnPos, Quaternion.identity);
     }
 
 	public void createTownCenter()
     {
 		isAnObjectSelected = true;
 
-		GameObject go = GameObject.Find (currentlySelectedObject);
+        GameObject.Find("Main Camera").GetComponent<CameraHandler>().enabled = false;
+
+        GameObject go = GameObject.Find (currentlySelectedObject);
 		if (go)
         {
 			Destroy (go.gameObject);
 		}
 
 		currentlySelectedObject = "TownCenterPlacer";
-        Instantiate(Resources.Load("TownCenterPlacer"), spawnPos, Quaternion.identity);
+        spawnPos = new Vector2(9.5f, 6.5f);
+        Instantiate(Resources.Load(currentlySelectedObject), spawnPos, Quaternion.identity);
     }    
 }

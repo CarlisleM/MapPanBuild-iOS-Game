@@ -25,22 +25,38 @@ public class changeTemplateSprite : MonoBehaviour {
 
             if (PlacementScript.currentlySelectedObject == "GroundPlacer")  // If placing ground
             {
-                    spriteRenderer.sprite = StructureCantExist;
+                spriteRenderer.sprite = StructureCantExist;
 
-                    if (gridTracker.tileLocation[(int)currentPos.x, (int)currentPos.y] == 0)    // If vacant tile
-                    {
-                        spriteRenderer.sprite = StructureValid;
-                    }
-                    else if (gridTracker.tileLocation[(int)currentPos.x, (int)currentPos.y] != 0)  // If not a vacant tile
-                    {
-                        spriteRenderer.sprite = StructureNotValid;
-                    }
-                    else
-                    {
-                        // Nothing
-                    }
+                if (gridTracker.tileLocation[(int)currentPos.x, (int)currentPos.y] == 0)    // If vacant tile
+                {
+                    spriteRenderer.sprite = StructureValid;
+                }
+                else if (gridTracker.tileLocation[(int)currentPos.x, (int)currentPos.y] != 0)  // If not a vacant tile
+                {
+                    spriteRenderer.sprite = StructureNotValid;
+                }
+                else
+                {
+                    // Nothing
+                }
             }
-            else    // If placing anything other than ground
+            else if (PlacementScript.currentlySelectedObject == "TownCenterPlacer")
+            {
+                currentPos = GameObject.Find(PlacementScript.currentlySelectedObject + "(Clone)").transform.position;
+                if (gridTracker.tileLocation[(int)currentPos.x, (int)currentPos.y+1] == 1 && gridTracker.tileLocation[(int)currentPos.x + 1, (int)currentPos.y+1] == 1 && gridTracker.tileLocation[(int)currentPos.x, (int)currentPos.y] == 1 && gridTracker.tileLocation[(int)currentPos.x + 1, (int)currentPos.y] == 1)    // If vacant tile
+                {
+                spriteRenderer.sprite = StructureValid;
+                }
+                else if (gridTracker.tileLocation[(int)currentPos.x, (int)currentPos.y+1] == 0 || gridTracker.tileLocation[(int)currentPos.x + 1, (int)currentPos.y+1] == 0 || gridTracker.tileLocation[(int)currentPos.x, (int)currentPos.y] == 0 || gridTracker.tileLocation[(int)currentPos.x + 1, (int)currentPos.y] == 0)  // If not a vacant tile
+                {
+                    spriteRenderer.sprite = StructureNotValid;
+                }
+                else
+                {
+                    // Nothing
+                }
+            }
+            else// If placing anything other than ground
             {
                 spriteRenderer.sprite = StructureCantExist;
 
@@ -61,6 +77,3 @@ public class changeTemplateSprite : MonoBehaviour {
     }
 
 }
-
-
-
