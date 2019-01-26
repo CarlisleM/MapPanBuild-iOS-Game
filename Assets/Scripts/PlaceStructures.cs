@@ -5,9 +5,7 @@ using System.Collections;
 public class PlaceStructures : MonoBehaviour {
 
     private Vector2 spawnPos;
-
-    public GameObject PlacementManager;
-    public GameObject Panel;
+    
     public GameObject Cancel_Place_Panel;
     public GameObject Button;
     public GameObject Button1;
@@ -137,6 +135,7 @@ public class PlaceStructures : MonoBehaviour {
         {
             Destroy(go.gameObject); // Destroy currently selected object
 
+            // Check if these are needed
             Button.SetActive(true);
             Button1.SetActive(true);
             Button2.SetActive(true);

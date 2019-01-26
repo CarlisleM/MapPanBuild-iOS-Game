@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-
-
 public class PlacementScript : MonoBehaviour {
 
     [SerializeField]
@@ -37,11 +35,14 @@ public class PlacementScript : MonoBehaviour {
 
     private void Update()
     {
-        PlaceStructures myInstance = Place.GetComponent<PlaceStructures>();
-
-        if (Input.GetMouseButtonDown(0) && GroundClass.groundCount < 20)
+        if (StructureBehaviour.gameStatus == "Beginning")
         {
-            myInstance.decisionMaker();
+            PlaceStructures myInstance = Place.GetComponent<PlaceStructures>();
+
+            if (Input.GetMouseButtonDown(0) && GroundClass.groundCount < 20)
+            {
+                myInstance.decisionMaker();
+            }
         }
     }
 

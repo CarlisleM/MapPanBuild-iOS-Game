@@ -22,12 +22,6 @@ public class StructureBehaviour : MonoBehaviour {
     public static int currentFarmLimit;
     public static int currentTownCenterLimit;
 
-    int groundLimit = 1;
-    int townCenterLimit = 1;
-	int farmLimit = 1;
-    
-	public static int thingyCount;
-
 	// Structure containing all the level limitations
 	public struct StructureLimits
     {
@@ -65,16 +59,9 @@ public class StructureBehaviour : MonoBehaviour {
                 if (go)
                 {
                     Destroy(go.gameObject); // Destroy currently selected object
-
                 }
             }
-
             gameStatus = "InProgress";
-            UICanvas.SetActive(true);
-            BeginnerCanvas.SetActive(false);
-            Blocker1.SetActive(false);
-            Blocker2.SetActive(false);
-            //   UICanvas.SetActive(true);
         }
 
         // Requirements to upgrade to the next level

@@ -103,6 +103,7 @@
     <Compile Include="Assets\Scripts\Structure Classes\GroundClass.cs" />
     <Compile Include="Assets\Scripts\Structure Classes\TownCenterClass.cs" />
     <Compile Include="Assets\Scripts\StructureBehaviour.cs" />
+    <Compile Include="Assets\Scripts\UIController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

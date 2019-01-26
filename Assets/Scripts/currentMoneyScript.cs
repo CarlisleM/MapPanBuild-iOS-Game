@@ -6,17 +6,18 @@ using UnityEngine.UI;
 public class currentMoneyScript : MonoBehaviour {
 
     Text currentMoneyText;
-
-    // Use this for initialization
-    void Start () {
+    
+    void Start()
+    {
         currentMoneyText = GetComponent<Text>();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    void Update()
+    {
         if (StructureBehaviour.gameStatus != "Beginning")
         {
             currentMoneyText.text = "Current money: " + StructureBehaviour.currentMoney;
         }
     }
+
 }

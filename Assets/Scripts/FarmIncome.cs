@@ -5,15 +5,15 @@ using UnityEngine;
 public class FarmIncome : MonoBehaviour {
 
     [SerializeField]
-    public int money = 0;
+    public static int currentIncome = 0;
 
     float elapsed = 0f;
 
     public void collectFarmIncome()
     {
-        StructureBehaviour.currentMoney = StructureBehaviour.currentMoney + money;
+        StructureBehaviour.currentMoney = StructureBehaviour.currentMoney + currentIncome;
         Debug.Log(StructureBehaviour.currentMoney);
-        money = 0;
+        currentIncome = 0;
     }
 
     void Update()
@@ -28,9 +28,9 @@ public class FarmIncome : MonoBehaviour {
 
     void OutputTime()
     {
-        if (money < 100)
+        if (currentIncome < 100)
         {
-            money++;
+            currentIncome++;
         }
     }
     
