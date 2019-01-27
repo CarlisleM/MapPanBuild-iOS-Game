@@ -23,7 +23,7 @@ public class FarmClass : MonoBehaviour {
     public static void createFarm(Vector2 spawnPos)
     {
         Farm farmTile = new Farm(0, (int)spawnPos.x, (int)spawnPos.y);
-        gridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] = 3;
+        GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] = 3;
         Instantiate(Resources.Load("FarmTile"), spawnPos, Quaternion.identity);
         StructureBehaviour.currentMoney = StructureBehaviour.currentMoney - 100;
         farmCount++;

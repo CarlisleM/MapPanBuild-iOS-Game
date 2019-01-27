@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using GrassGame;
 
 public class PlacementScript : MonoBehaviour {
 
@@ -41,6 +42,7 @@ public class PlacementScript : MonoBehaviour {
 
             if (Input.GetMouseButtonDown(0) && GroundClass.groundCount < 20)
             {
+                Debug.Log(GridTracker.GetEntityCount(Entities.GRASS));
                 myInstance.decisionMaker();
             }
         }

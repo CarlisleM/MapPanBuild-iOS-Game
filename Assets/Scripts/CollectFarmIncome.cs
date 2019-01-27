@@ -20,7 +20,7 @@ public class CollectFarmIncome : MonoBehaviour {
             if (Input.GetMouseButtonDown(0))
             {
                 Position pos = Utils.GetPosition();
-                if (gridTracker.tileLocation[pos.x, pos.y] == 3)
+                if (GridTracker.tileLocation[pos.x, pos.y] == 3)
                 {
                     Debug.Log("Clicked on a farm");
                     CollectFarmIncomeButton.SetActive(true);
