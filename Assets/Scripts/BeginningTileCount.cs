@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using GrassGame;
 
 public class BeginningTileCount : MonoBehaviour {
 
@@ -14,8 +15,8 @@ public class BeginningTileCount : MonoBehaviour {
 	void Update () {
         if (StructureBehaviour.gameStatus == "Beginning")
         {
-            currentTileCount.text = "Ground tiles remaining: " + (20 -GroundClass.groundCount);
+            currentTileCount.text = "Ground tiles remaining: " + (20-GridTracker.GetEntityCount(Entities.GRASS));
         }
     }
-
+    
 }

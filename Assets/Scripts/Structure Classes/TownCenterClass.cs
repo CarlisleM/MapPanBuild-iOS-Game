@@ -19,7 +19,7 @@ public class TownCenterClass : MonoBehaviour {
         }
     }
 
-    public static void createTownCenter(Vector2 spawnPos)
+    public static void CreateTownCenter(Vector2 spawnPos)
     {
         TownCenter groundTile = new TownCenter((int)spawnPos.x, (int)spawnPos.y);
         GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y+1] = 2;

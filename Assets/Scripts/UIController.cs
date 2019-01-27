@@ -1,33 +1,42 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GrassGame;
 
 public class UIController : MonoBehaviour {
 
-    public GameObject UICanvas;
-    public GameObject BuildUIPanel;
-    public GameObject PlaceCancelPanel;
-    public GameObject BeginnerCanvas;
-    public GameObject Blocker1;
-    public GameObject Blocker2;
+    public GameObject ui_canvas;
+    public GameObject build_ui_panel;
+    public GameObject place_cancel_Panel;
+    public GameObject beginner_canvas;
+    public GameObject build_ui_button;
 
     private void Start()
     {
-        UICanvas.SetActive(false);
-        BuildUIPanel.SetActive(false);
-        PlaceCancelPanel.SetActive(false);
+        ui_canvas.SetActive(false);
+        build_ui_panel.SetActive(false);
+        place_cancel_Panel.SetActive(false);
     }
 
     private void Update()
     {
-        if (GroundClass.groundCount == 20)
+        if (GridTracker.GetEntityCount(Entities.GRASS) == 20)
         {
-            UICanvas.SetActive(true);
-            BuildUIPanel.SetActive(true);
-            BeginnerCanvas.SetActive(false);
-            Blocker1.SetActive(false);
-            Blocker2.SetActive(false);
+            ui_canvas.SetActive(true);
+            beginner_canvas.SetActive(false);
+        }
+
+        if (PlacementScript.isAnObjectSelected == true)
+        {
+            build_ui_button.SetActive(true);
+            build_ui_panel.SetActive(false);
+            place_cancel_Panel.SetActive(true);
+        }
+        else
+        {
+            build_ui_button.SetActive(true);
+            place_cancel_Panel.SetActive(false);
         }
     }
-
+    
 }

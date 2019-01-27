@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FarmClass : MonoBehaviour {
+public class FarmClass: MonoBehaviour {
 
     public static int farmCount;
     
@@ -20,7 +20,7 @@ public class FarmClass : MonoBehaviour {
         }
     }
 
-    public static void createFarm(Vector2 spawnPos)
+    public static void CreateFarm(Vector2 spawnPos)
     {
         Farm farmTile = new Farm(0, (int)spawnPos.x, (int)spawnPos.y);
         GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] = 3;

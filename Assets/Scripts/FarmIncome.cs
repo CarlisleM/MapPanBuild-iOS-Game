@@ -18,6 +18,7 @@ public class FarmIncome : MonoBehaviour {
 
     void Update()
     {
+
         elapsed += Time.deltaTime;
         if (elapsed >= 1f)
         {

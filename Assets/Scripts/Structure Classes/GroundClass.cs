@@ -30,19 +30,7 @@ public class GroundClass : MonoBehaviour {
     {
         if (GridTracker.tileLocation[spawnPos.x, spawnPos.y] == (int)Entities.EMPTY)
         {
-            Debug.Log("Add ground");
             GridTracker.AddTile(spawnPos, Entities.GRASS);
-            //Ground groundTile = new Ground(spawnPos.x, spawnPos.y);
-            //GridTracker.tileLocation[spawnPos.x, spawnPos.y] = (int)Entities.GRASS;
-
-            //groundTileList.Add((GameObject)Instantiate(
-            //Resources.Load("GroundTile"), 
-            //    new Vector3(spawnPos.x, spawnPos.y, 0), 
-            //    Quaternion.identity)
-            //);
-
-            //StructureBehaviour.currentMoney = StructureBehaviour.currentMoney - 25;
-            //groundCount++;
         }
     }
 

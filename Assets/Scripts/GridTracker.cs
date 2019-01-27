@@ -13,8 +13,8 @@ public class GridTracker : MonoBehaviour {
     public static List<Position> historicalPositions;
 
     public static int[,] tileLocation = new int[10, 10] {    // 10 Rows by 10 Columns
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ,  
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ,   
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ,
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ,
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ,
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ,
         {0, 0, 0, 0, 2, 2, 0, 0, 0, 0} ,
@@ -27,6 +27,8 @@ public class GridTracker : MonoBehaviour {
 
     public void Start()
     {
+        new FarmClass.Farm(0, 0, 0);
+
         historicalGroundGameObjects = new List<GameObject>();
         historicalPositions = new List<Position>();
 
@@ -40,7 +42,7 @@ public class GridTracker : MonoBehaviour {
         {
             for (int j = 0; j < tileLocation.GetLength(1); j++)
             {
-                if (tileLocation[i, j] == (int) entity)
+                if (tileLocation[i, j] == (int)entity)
                 {
                     count++;
                 }
@@ -48,6 +50,20 @@ public class GridTracker : MonoBehaviour {
         }
 
         return count;
+    }
+
+
+    public static void CreateFarm(Position pos)
+    {
+        FarmClass.Farm farmTile = new FarmClass.Farm(0, pos.x, pos.y);
+        // create new farm
+        // do timer stuff
+    }
+
+    public static void CreateEntityWithCost(Position pos, Entities entity, int cost)
+    {
+        AddTile(pos, entity);
+        StructureBehaviour.currentMoney = StructureBehaviour.currentMoney - cost;
     }
 
     public static void AddTile(Position pos, Entities entity)

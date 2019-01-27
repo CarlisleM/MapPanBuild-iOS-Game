@@ -6,26 +6,19 @@ using UnityEngine.EventSystems;
 using GrassGame;
 
 public class PlacementScript : MonoBehaviour {
-
-    [SerializeField]
-    private GameObject Ground;
     [SerializeField]
     private GameObject GroundPlacer;
     [SerializeField]
     private GameObject FarmPlacer;
     [SerializeField]
     private GameObject TownCenterPlacer;
-
-    public GameObject MainCamera;
-    public GameObject StructureCamera;
+    
     public GameObject Place;
 
     private Vector2 spawnPos;
 
     public static bool isAnObjectSelected = false;
     public static string currentlySelectedObject;
-
-    public GameObject UndoButton;
 
     private void Start()
     {
@@ -46,26 +39,17 @@ public class PlacementScript : MonoBehaviour {
 
                 if (!EventSystem.current.IsPointerOverGameObject())
                 {
-                    myInstance.decisionMaker();
+          //          PlaceStructures.DecisionMaker();
+
+                    myInstance.DecisionMaker();
                 }
             }
         }
     }
 
-    public void undo()
+    public void Undo()
     {
-
         GridTracker.Undo();
-        //if (GroundClass.groundCount > 0)
-        //{
-        //    Position pos = Utils.GetPosition();
-        //    GameObject ScriptObject = GameObject.Find("ScriptObject");
-        //    GroundClass groundScript = ScriptObject.GetComponent<GroundClass>();
-        //    groundScript.CreateGround(pos);
-        //    Destroy(GroundClass.groundTileList[GroundClass.groundCount-1]);
-        //    GroundClass.groundTileList.RemoveAt(GroundClass.groundCount-1);
-        //    GroundClass.groundCount--;
-        //}
     }
 
     public void CreateGround()
@@ -73,9 +57,7 @@ public class PlacementScript : MonoBehaviour {
         isAnObjectSelected = true;  // An object is selected
 
         GameObject.Find("Main Camera").GetComponent<CameraHandler>().enabled = false;
-        // MainCamera.SetActive(false);
-        // StructureCamera.SetActive(true);
-        
+
         GameObject go = GameObject.Find (currentlySelectedObject); // Find currently selected object
 		if (go)
         {
@@ -87,7 +69,7 @@ public class PlacementScript : MonoBehaviour {
         Instantiate(Resources.Load(currentlySelectedObject), spawnPos, Quaternion.identity);
     }
 
-	public void createFarm()
+	public void CreateFarm()
     {
         isAnObjectSelected = true;
 
@@ -104,7 +86,7 @@ public class PlacementScript : MonoBehaviour {
         Instantiate(Resources.Load(currentlySelectedObject), spawnPos, Quaternion.identity);
     }
 
-	public void createTownCenter()
+	public void CreateTownCenter()
     {
 		isAnObjectSelected = true;
 

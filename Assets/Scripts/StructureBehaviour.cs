@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GrassGame;
 
 public class StructureBehaviour : MonoBehaviour {
 
@@ -12,8 +13,6 @@ public class StructureBehaviour : MonoBehaviour {
     
     public GameObject UICanvas;
     public GameObject BeginnerCanvas;
-    public GameObject Blocker1;
-    public GameObject Blocker2;
 
     public static int currentLevel = 1;
 	public static int currentMoney = 600;
@@ -46,12 +45,7 @@ public class StructureBehaviour : MonoBehaviour {
     
     void Update()
     {
-        //for (int i = 0; i < PlaceStructures.farmInstances.Count; i++)
-        //{ 
-        //    FarmIncome farmIncomeScript = PlaceStructures.farmInstances[i].GetComponent<FarmIncome>();
-        //}
-        
-        if (GroundClass.groundCount == 20)
+        if (GridTracker.GetEntityCount(Entities.GRASS) == 20)
         {
             if (gameStatus == "Beginning")
             {
@@ -75,12 +69,12 @@ public class StructureBehaviour : MonoBehaviour {
                 Debug.Log("You are able to upgrade to level 2.");
             }
         }
-        else if (currentLevel == 2 && currentGroundLimit == GroundClass.groundCount && currentFarmLimit == FarmClass.farmCount && currentTownCenterLimit == TownCenterClass.townCenterCount)
+        else if (currentLevel == 2 && currentGroundLimit == GridTracker.GetEntityCount(Entities.GRASS) && currentFarmLimit == GridTracker.GetEntityCount(Entities.FARM) && currentTownCenterLimit == TownCenterClass.townCenterCount)
         {
             currentGroundLimit = level2.Ground_limit;
             currentFarmLimit = level2.Farm_limit;
             currentTownCenterLimit = level2.Town_center_limit;
-            if (currentMoney >= 3000 && currentGroundLimit == GroundClass.groundCount && currentFarmLimit == FarmClass.farmCount && currentTownCenterLimit == TownCenterClass.townCenterCount)
+            if (currentMoney >= 3000 && currentGroundLimit == GridTracker.GetEntityCount(Entities.GRASS) && currentFarmLimit == GridTracker.GetEntityCount(Entities.FARM) && currentTownCenterLimit == TownCenterClass.townCenterCount)
             {
                 Debug.Log("You are able to upgrade to level 3.");
             }
@@ -90,7 +84,7 @@ public class StructureBehaviour : MonoBehaviour {
             currentGroundLimit = level3.Ground_limit;
             currentFarmLimit = level3.Farm_limit;
             currentTownCenterLimit = level3.Town_center_limit;
-            if (currentMoney >= 5000 && currentGroundLimit == GroundClass.groundCount && currentFarmLimit == FarmClass.farmCount && currentTownCenterLimit == TownCenterClass.townCenterCount)
+            if (currentMoney >= 5000 && currentGroundLimit == GridTracker.GetEntityCount(Entities.GRASS) && currentFarmLimit == GridTracker.GetEntityCount(Entities.FARM) && currentTownCenterLimit == TownCenterClass.townCenterCount)
             {
                 Debug.Log("You are able to upgrade to level 4");
             }
@@ -100,7 +94,7 @@ public class StructureBehaviour : MonoBehaviour {
             currentGroundLimit = level4.Ground_limit;
             currentFarmLimit = level4.Farm_limit;
             currentTownCenterLimit = level4.Town_center_limit;
-            if (currentMoney >= 7000 && currentGroundLimit == GroundClass.groundCount && currentFarmLimit == FarmClass.farmCount && currentTownCenterLimit == TownCenterClass.townCenterCount)
+            if (currentMoney >= 7000 && currentGroundLimit == GridTracker.GetEntityCount(Entities.GRASS) && currentFarmLimit == GridTracker.GetEntityCount(Entities.FARM) && currentTownCenterLimit == TownCenterClass.townCenterCount)
             {
                 Debug.Log("You are able to upgrade to level 5.");
             }
