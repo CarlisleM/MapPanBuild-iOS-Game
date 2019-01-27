@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using GrassGame;
 
 public class PlaceStructures : MonoBehaviour {
 
@@ -145,11 +146,11 @@ public class PlaceStructures : MonoBehaviour {
     
     public void decisionMaker()
     {
-        Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Position pos = Utils.GetPosition();
 
         if (StructureBehaviour.gameStatus == "Beginning")
         {
-            spawnPos = new Vector2(Mathf.Round(worldPoint.x), Mathf.Round(worldPoint.y));
+            spawnPos = new Vector2(pos.x, pos.y);
         }
         else
         {

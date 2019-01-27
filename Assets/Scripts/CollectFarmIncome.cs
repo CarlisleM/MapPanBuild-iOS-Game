@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using GrassGame;
 
 public class CollectFarmIncome : MonoBehaviour {
 
@@ -18,8 +19,8 @@ public class CollectFarmIncome : MonoBehaviour {
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                if (gridTracker.tileLocation[(int)Mathf.Round(worldPoint.x), (int)Mathf.Round(worldPoint.y)] == 3)
+                Position pos = Utils.GetPosition();
+                if (gridTracker.tileLocation[pos.x, pos.y] == 3)
                 {
                     Debug.Log("Clicked on a farm");
                     CollectFarmIncomeButton.SetActive(true);
