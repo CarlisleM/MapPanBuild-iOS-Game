@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GrassGame;
 
 public class GroundClass : MonoBehaviour {
     
@@ -25,15 +26,23 @@ public class GroundClass : MonoBehaviour {
         groundTileList = new List<GameObject>();
     }
 
-    public void createGround(Vector2 spawnPos)
+    public void CreateGround(Position spawnPos)
     {
-        if (GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == 0)
+        if (GridTracker.tileLocation[spawnPos.x, spawnPos.y] == (int)Entities.EMPTY)
         {
-            Ground groundTile = new Ground((int)spawnPos.x, (int)spawnPos.y);
-            GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] = 1;
-            groundTileList.Add((GameObject)Instantiate(Resources.Load("GroundTile"), spawnPos, Quaternion.identity));
-            StructureBehaviour.currentMoney = StructureBehaviour.currentMoney - 25;
-            groundCount++;
+            Debug.Log("Add ground");
+            GridTracker.AddTile(spawnPos, Entities.GRASS);
+            //Ground groundTile = new Ground(spawnPos.x, spawnPos.y);
+            //GridTracker.tileLocation[spawnPos.x, spawnPos.y] = (int)Entities.GRASS;
+
+            //groundTileList.Add((GameObject)Instantiate(
+            //Resources.Load("GroundTile"), 
+            //    new Vector3(spawnPos.x, spawnPos.y, 0), 
+            //    Quaternion.identity)
+            //);
+
+            //StructureBehaviour.currentMoney = StructureBehaviour.currentMoney - 25;
+            //groundCount++;
         }
     }
 

@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Collections;
 using GrassGame;
 
-public class PlaceStructures : MonoBehaviour {
-
+public class PlaceStructures : MonoBehaviour { 
     private Vector2 spawnPos;
     
     public GameObject Cancel_Place_Panel;
@@ -105,9 +104,11 @@ public class PlaceStructures : MonoBehaviour {
 
         if (GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == 0 && validGridTile == true)
         {
-            GameObject ScriptObject = GameObject.Find("ScriptObject");
-            GroundClass groundScript = ScriptObject.GetComponent<GroundClass>();
-            groundScript.createGround(spawnPos);
+                Position pos = Utils.GetPosition();
+                GameObject ScriptObject = GameObject.Find("ScriptObject");
+                GroundClass groundScript = ScriptObject.GetComponent<GroundClass>();
+                groundScript.CreateGround(pos);
+
         }
         validGridTile = false;
     }

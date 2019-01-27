@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.EventSystems;
 using GrassGame;
 
 public class PlacementScript : MonoBehaviour {
@@ -40,28 +41,34 @@ public class PlacementScript : MonoBehaviour {
         {
             PlaceStructures myInstance = Place.GetComponent<PlaceStructures>();
 
-            if (Input.GetMouseButtonDown(0) && GroundClass.groundCount < 20)
+            if (Input.GetMouseButtonDown(0) && GridTracker.GetEntityCount(Entities.GRASS) < 20)
             {
-                Debug.Log(GridTracker.GetEntityCount(Entities.GRASS));
-                myInstance.decisionMaker();
+
+                if (!EventSystem.current.IsPointerOverGameObject())
+                {
+                    myInstance.decisionMaker();
+                }
             }
         }
     }
 
     public void undo()
     {
-        if (GroundClass.groundCount > 0)
-        {
-            GameObject ScriptObject = GameObject.Find("ScriptObject");
-            GroundClass groundScript = ScriptObject.GetComponent<GroundClass>();
-            groundScript.createGround(spawnPos);
-            Destroy(GroundClass.groundTileList[GroundClass.groundCount-1]);
-            GroundClass.groundTileList.RemoveAt(GroundClass.groundCount-1);
-            GroundClass.groundCount--;
-        }
+
+        GridTracker.Undo();
+        //if (GroundClass.groundCount > 0)
+        //{
+        //    Position pos = Utils.GetPosition();
+        //    GameObject ScriptObject = GameObject.Find("ScriptObject");
+        //    GroundClass groundScript = ScriptObject.GetComponent<GroundClass>();
+        //    groundScript.CreateGround(pos);
+        //    Destroy(GroundClass.groundTileList[GroundClass.groundCount-1]);
+        //    GroundClass.groundTileList.RemoveAt(GroundClass.groundCount-1);
+        //    GroundClass.groundCount--;
+        //}
     }
 
-    public void createGround()
+    public void CreateGround()
     {
         isAnObjectSelected = true;  // An object is selected
 
