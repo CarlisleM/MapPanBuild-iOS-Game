@@ -13,34 +13,38 @@ public class PlaceStructures : MonoBehaviour {
     public GameObject Button2;
     public GameObject Button3;
 
+    int xGridMax = GridTracker.tileLocation.GetLength(0)-1;
+    int xGridMin = 0;
+    int yGridMax = GridTracker.tileLocation.GetLength(1)-1;
+    int yGridMin = 0;
+
     public bool validGridTile = false;
     
     void PlaceGround()
     {
-        Debug.Log("Here");
         // Check if there is a ground tile next to it
-        if (spawnPos.x > 0 && spawnPos.x < 9)
+        if (spawnPos.x > xGridMin && spawnPos.x < xGridMax)
         {
             // Not against Left or right border
-            if (spawnPos.y > 0 && spawnPos.y < 9)
+            if (spawnPos.y > yGridMin && spawnPos.y < yGridMax)
             {
-                if (GridTracker.tileLocation[(int)spawnPos.x-1, (int)spawnPos.y] >= 1 || GridTracker.tileLocation[(int)spawnPos.x+1, (int)spawnPos.y] >= 1 || GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y+1] >= 1 || GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y-1] >= 1)
+                if (GridTracker.tileLocation[(int)spawnPos.x-1, (int)spawnPos.y] != (int)Entities.EMPTY || GridTracker.tileLocation[(int)spawnPos.x+1, (int)spawnPos.y] != (int)Entities.EMPTY || GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y+1] != (int)Entities.EMPTY || GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y-1] != (int)Entities.EMPTY)
                 {
                     validGridTile = true;   // Not against any boundaries
                 }
             }
             else
             {
-                if (spawnPos.y == 0)
+                if (spawnPos.y == yGridMin)
                 {
-                    if (GridTracker.tileLocation[(int)spawnPos.x-1, (int)spawnPos.y] >= 1 || GridTracker.tileLocation[(int)spawnPos.x+1, (int)spawnPos.y] >= 1 || GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y+1] >= 1)
+                    if (GridTracker.tileLocation[(int)spawnPos.x-1, (int)spawnPos.y] != (int)Entities.EMPTY || GridTracker.tileLocation[(int)spawnPos.x+1, (int)spawnPos.y] != (int)Entities.EMPTY || GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y+1] != (int)Entities.EMPTY)
                     {
                         validGridTile = true;   // Bottom boundary
                     }
                 }
                 else
                 {
-                    if (GridTracker.tileLocation[(int)spawnPos.x-1, (int)spawnPos.y] >= 1 || GridTracker.tileLocation[(int)spawnPos.x+1, (int)spawnPos.y] >= 1 || GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y-1] >= 1)
+                    if (GridTracker.tileLocation[(int)spawnPos.x-1, (int)spawnPos.y] != (int)Entities.EMPTY || GridTracker.tileLocation[(int)spawnPos.x+1, (int)spawnPos.y] != (int)Entities.EMPTY || GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y-1] != (int)Entities.EMPTY)
                     {
                         validGridTile = true;   // Top boundary
                     }
@@ -50,19 +54,19 @@ public class PlaceStructures : MonoBehaviour {
         else
         {
             // Against left or right
-            if (spawnPos.x == 0)
+            if (spawnPos.x == xGridMin)
             {
-                if (spawnPos.y == 0)
+                if (spawnPos.y == yGridMin)
                 {
-                    if (GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y+1] >= 1 || GridTracker.tileLocation[(int)spawnPos.x+1, (int)spawnPos.y+1] >= 1 || GridTracker.tileLocation[(int)spawnPos.x+1, (int)spawnPos.y] >= 1)
+                    if (GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y+1] != (int)Entities.EMPTY || GridTracker.tileLocation[(int)spawnPos.x+1, (int)spawnPos.y+1] != (int)Entities.EMPTY || GridTracker.tileLocation[(int)spawnPos.x+1, (int)spawnPos.y] != (int)Entities.EMPTY)
                     {
                         
                         validGridTile = true;   // Bottom left corner
                     }
                 }
-                else if (spawnPos.y == 9)
+                else if (spawnPos.y == yGridMax)
                 {
-                    if (GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y-1] >= 1 || GridTracker.tileLocation[(int)spawnPos.x+1, (int)spawnPos.y-1] >= 1 || GridTracker.tileLocation[(int)spawnPos.x+1, (int)spawnPos.y] >= 1)
+                    if (GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y-1] != (int)Entities.EMPTY || GridTracker.tileLocation[(int)spawnPos.x+1, (int)spawnPos.y-1] != (int)Entities.EMPTY || GridTracker.tileLocation[(int)spawnPos.x+1, (int)spawnPos.y] != (int)Entities.EMPTY)
                     {
                         
                         validGridTile = true;   // Top left corner
@@ -70,7 +74,7 @@ public class PlaceStructures : MonoBehaviour {
                 }
                 else
                 {
-                    if (GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y-1] >= 1 || GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y+1] >= 1 || GridTracker.tileLocation[(int)spawnPos.x+1, (int)spawnPos.y] >= 1)
+                    if (GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y-1] != (int)Entities.EMPTY || GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y+1] != (int)Entities.EMPTY || GridTracker.tileLocation[(int)spawnPos.x+1, (int)spawnPos.y] != (int)Entities.EMPTY)
                     {
                         validGridTile = true;   // Left boundary
                     }
@@ -78,23 +82,23 @@ public class PlaceStructures : MonoBehaviour {
             }
             else
             {
-                if (spawnPos.y == 0)
+                if (spawnPos.y == yGridMin)
                 {
-                    if (GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y+1] >= 1 || GridTracker.tileLocation[(int)spawnPos.x-1, (int)spawnPos.y+1] >= 1 || GridTracker.tileLocation[(int)spawnPos.x-1, (int)spawnPos.y] >= 1)
+                    if (GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y+1] != (int)Entities.EMPTY || GridTracker.tileLocation[(int)spawnPos.x-1, (int)spawnPos.y+1] != (int)Entities.EMPTY || GridTracker.tileLocation[(int)spawnPos.x-1, (int)spawnPos.y] != (int)Entities.EMPTY)
                     {
                         validGridTile = true;   // Bottom right corner
                     }
                 }
-                else if (spawnPos.y == 9)
+                else if (spawnPos.y == yGridMax)
                 {
-                    if (GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y-1] >= 1 || GridTracker.tileLocation[(int)spawnPos.x-1, (int)spawnPos.y-1] >= 1 || GridTracker.tileLocation[(int)spawnPos.x-1, (int)spawnPos.y] >= 1)
+                    if (GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y-1] != (int)Entities.EMPTY || GridTracker.tileLocation[(int)spawnPos.x-1, (int)spawnPos.y-1] != (int)Entities.EMPTY || GridTracker.tileLocation[(int)spawnPos.x-1, (int)spawnPos.y] != (int)Entities.EMPTY)
                     {
                         validGridTile = true;   // Top right corner
                     }
                 }
                 else
                 {
-                    if (GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y-1] >= 1 || GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y+1] >= 1 || GridTracker.tileLocation[(int)spawnPos.x-1, (int)spawnPos.y] >= 1)
+                    if (GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y-1] != (int)Entities.EMPTY || GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y+1] != (int)Entities.EMPTY || GridTracker.tileLocation[(int)spawnPos.x-1, (int)spawnPos.y] != (int)Entities.EMPTY)
                     {
                         validGridTile = true;   // Right boundary
                     }
@@ -105,21 +109,23 @@ public class PlaceStructures : MonoBehaviour {
         Debug.Log(validGridTile);
         Debug.Log(GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y]);
         Debug.Log(spawnPos.x + " " + spawnPos.y);
-        if (GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == 0 && validGridTile == true)
+        if (GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == (int)Entities.EMPTY && validGridTile == true)
         {
             if (StructureBehaviour.gameStatus == "Beginning")
             {
+                // Place ground at mouse position
                 Position pos = Utils.GetMousePosition();
                 GameObject ScriptObject = GameObject.Find("ScriptObject");
                 GroundClass groundScript = ScriptObject.GetComponent<GroundClass>();
-                groundScript.CreateGround(pos);
+                GridTracker.CreateEntityWithCost(pos, Entities.GRASS, "GroundTile", 1, 25);
             }
             else
             {
+                // Place ground at template position
                 Position pos = Utils.GetTemplatePosition();
                 GameObject ScriptObject = GameObject.Find("ScriptObject");
                 GroundClass groundScript = ScriptObject.GetComponent<GroundClass>();
-                groundScript.CreateGround(pos);
+                GridTracker.CreateEntityWithCost(pos, Entities.GRASS, "GroundTile", 1, 25);
             }
         }
         validGridTile = false;
@@ -127,7 +133,7 @@ public class PlaceStructures : MonoBehaviour {
 
     void PlaceFarm()
     {
-        if (GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == 1)
+        if (GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == (int)Entities.GRASS)
         {
             Position spawnPosition = Utils.GetTemplatePosition();
             GridTracker.CreateEntityWithCost(spawnPosition, Entities.FARM, "FarmTile", 1, 100);
@@ -136,7 +142,7 @@ public class PlaceStructures : MonoBehaviour {
 
    void PlaceTownCenter()
     {
-        if (GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y+1] == 1 && GridTracker.tileLocation[(int)spawnPos.x+1, (int)spawnPos.y+1] == 1 && GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == 1 && GridTracker.tileLocation[(int)spawnPos.x+1, (int)spawnPos.y] == 1)
+        if (GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y+1] == (int)Entities.GRASS && GridTracker.tileLocation[(int)spawnPos.x+1, (int)spawnPos.y+1] == (int)Entities.GRASS && GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == (int)Entities.GRASS && GridTracker.tileLocation[(int)spawnPos.x+1, (int)spawnPos.y] == (int)Entities.GRASS)
         {
             Position spawnPosition = Utils.GetTemplatePosition();
             GridTracker.CreateEntityWithCost(spawnPosition, Entities.TOWN_CENTER, "TownCenterTile", 4, 1000);

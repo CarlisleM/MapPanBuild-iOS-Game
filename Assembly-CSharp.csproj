@@ -61,25 +61,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\BeginningTileCount.cs" />
-    <Compile Include="Assets\Scripts\CameraController.cs" />
-    <Compile Include="Assets\Scripts\CameraHandler.cs" />
     <Compile Include="Assets\Scripts\changeTemplateSprite.cs" />
     <Compile Include="Assets\Scripts\CollectFarmIncome.cs" />
-    <Compile Include="Assets\Scripts\currentMoneyScript.cs" />
     <Compile Include="Assets\Scripts\DragStructure.cs" />
+    <Compile Include="Assets\Scripts\Entity.cs" />
     <Compile Include="Assets\Scripts\FarmIncome.cs" />
-    <Compile Include="Assets\Scripts\gridTracker.cs" />
-    <Compile Include="Assets\Scripts\OpenBuildInterface.cs" />
+    <Compile Include="Assets\Scripts\GridTracker.cs" />
     <Compile Include="Assets\Scripts\PlacementScript.cs" />
     <Compile Include="Assets\Scripts\PlaceStructures.cs" />
     <Compile Include="Assets\Scripts\PlacingStructureCamera.cs" />
+    <Compile Include="Assets\Scripts\Position.cs" />
     <Compile Include="Assets\Scripts\SceneHandler.cs" />
-    <Compile Include="Assets\Scripts\Structure Classes\FarmClass.cs" />
+    <Compile Include="Assets\Scripts\Structure Classes\Ground.cs" />
     <Compile Include="Assets\Scripts\Structure Classes\GroundClass.cs" />
     <Compile Include="Assets\Scripts\Structure Classes\TownCenterClass.cs" />
     <Compile Include="Assets\Scripts\StructureBehaviour.cs" />
-    <Compile Include="Assets\Scripts\UIController.cs" />
+    <Compile Include="Assets\Scripts\UI Scripts\BeginningTileCount.cs" />
+    <Compile Include="Assets\Scripts\UI Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\UI Scripts\CameraHandler.cs" />
+    <Compile Include="Assets\Scripts\UI Scripts\CancelScript.cs" />
+    <Compile Include="Assets\Scripts\UI Scripts\currentMoneyScript.cs" />
+    <Compile Include="Assets\Scripts\UI Scripts\OpenStructures.cs" />
+    <Compile Include="Assets\Scripts\UI Scripts\UIController.cs" />
+    <Compile Include="Assets\Scripts\Utils.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/Carlisle/Desktop/UnityProjects/MapPanBuild-iOS-Game/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

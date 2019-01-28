@@ -3,12 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - GroundTile
-  - FarmTile
-  - TownCenterTile
-  - GroundTileTemplate
-  - FarmTileTemplate
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -18,8 +13,8 @@ TagManager:
   - UI
   - 
   - 
-  - GrassTile
-  - HouseTile
+  - 
+  - 
   - 
   - 
   - 

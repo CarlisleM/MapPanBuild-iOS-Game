@@ -6,13 +6,7 @@ using UnityEngine.EventSystems;
 using GrassGame;
 
 public class PlacementScript : MonoBehaviour {
-    [SerializeField]
-    private GameObject GroundPlacer;
-    [SerializeField]
-    private GameObject FarmPlacer;
-    [SerializeField]
-    private GameObject TownCenterPlacer;
-    
+
     public GameObject Place;
 
     private Vector2 spawnPos;
