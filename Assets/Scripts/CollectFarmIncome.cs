@@ -11,24 +11,8 @@ public class CollectFarmIncome : MonoBehaviour {
 
     void Start()
     {
-     //   currentIncomeText = GetComponent<Text>();
+        currentIncomeText = GetComponent<Text>();
     }
 
-    void Update () {
-        if (PlacementScript.isAnObjectSelected == false)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                Position pos = Utils.GetMousePosition();
-                if (GridTracker.tileLocation[pos.x, pos.y] == 3)
-                {
-                    Debug.Log("Clicked on a farm");
-                    CollectFarmIncomeButton.SetActive(true);
-                    currentIncomeText.text = "" + FarmIncome.currentIncome;
-
-                }
-            }
-        }
-	}
 
 }

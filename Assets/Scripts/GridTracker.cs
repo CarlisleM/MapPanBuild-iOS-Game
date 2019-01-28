@@ -5,11 +5,10 @@ using GrassGame;
 
 public class GridTracker : MonoBehaviour {
 
-    // What does this mean???
+    // List containing GameObject's in the order they were created
     public static List<GameObject> historicalGroundGameObjects;
-
-
-    // This is the coords of the previous created grounds
+    
+    // This is the coords of the previously created grounds
     public static List<Position> historicalPositions;
 
     public static int[,] tileLocation = new int[10, 10] {    // 10 Rows by 10 Columns
@@ -27,13 +26,11 @@ public class GridTracker : MonoBehaviour {
 
     public void Start()
     {
-        new FarmClass.Farm(0, 0, 0);
-
         historicalGroundGameObjects = new List<GameObject>();
         historicalPositions = new List<Position>();
-
     }
 
+    // Count the number of a specific tile type
     public static int GetEntityCount(Entities entity)
     {
         int count = 0;
@@ -52,26 +49,37 @@ public class GridTracker : MonoBehaviour {
         return count;
     }
 
-
-    public static void CreateFarm(Position pos)
+    // Instantiate a tile and subtract from the players money
+    public static void CreateEntityWithCost(Position pos, Entities entity, string tileType, int tileSize, int cost)
     {
-        FarmClass.Farm farmTile = new FarmClass.Farm(0, pos.x, pos.y);
-        // create new farm
-        // do timer stuff
-    }
-
-    public static void CreateEntityWithCost(Position pos, Entities entity, int cost)
-    {
-        AddTile(pos, entity);
+        AddTile(pos, entity, tileType, tileSize);
         StructureBehaviour.currentMoney = StructureBehaviour.currentMoney - cost;
     }
 
-    public static void AddTile(Position pos, Entities entity)
+    // pos = position of tile               
+    // entity = type of tile represented as an int    
+    // tileType = type of tile as a string  
+    // tileSize = number of grid squares it occupies
+    public static void AddTile(Position pos, Entities entity, string tileType, int tileSize)
     {
-        Ground groundTile = new Ground(pos.x, pos.y);
-        GridTracker.tileLocation[pos.x, pos.y] = (int)entity;
+        if (tileSize == 1)
+        {
+            tileLocation[pos.x, pos.y] = (int)entity;
+        }
+        else if (tileSize == 2)
+        {
+            tileLocation[pos.x, pos.y] = (int)entity;
+            tileLocation[pos.x+1, pos.y] = (int)entity;
+        }
+        else
+        {
+            tileLocation[pos.x, pos.y] = (int)entity;
+            tileLocation[pos.x+1, pos.y] = (int)entity;
+            tileLocation[pos.x, pos.y+1] = (int)entity;
+            tileLocation[pos.x+1, pos.y+1] = (int)entity;
+        }
 
-        GameObject go = Instantiate(Resources.Load("GroundTile"), new Vector3(pos.x, pos.y), Quaternion.identity) as GameObject;
+        GameObject go = Instantiate(Resources.Load(tileType), new Vector3(pos.x, pos.y), Quaternion.identity) as GameObject;
 
         historicalGroundGameObjects.Add(go);
         historicalPositions.Add(pos);
@@ -81,12 +89,12 @@ public class GridTracker : MonoBehaviour {
     {
         if (historicalGroundGameObjects.Count > 0) 
         {
-            // update the farm grid
+            // Update the grid and remove from the list
             Position lastPosition = historicalPositions[historicalPositions.Count - 1];
             tileLocation[lastPosition.x, lastPosition.y] = (int)Entities.EMPTY;
             historicalPositions.RemoveAt(historicalPositions.Count - 1);
 
-            // remove the actual object from the scene
+            // Remove the actual object from the scene
             GameObject lastObject = historicalGroundGameObjects[historicalGroundGameObjects.Count - 1];
             historicalGroundGameObjects.RemoveAt(historicalGroundGameObjects.Count - 1);
             Destroy(lastObject);

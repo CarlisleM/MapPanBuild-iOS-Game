@@ -3,6 +3,6 @@ Game 	- if I build a farm do I delete the ground underneath it to improve perfor
 	- Get timers working for farms and able to collect money
 	- Object goes from towncenter to farm following optimal route
 	- Camera interpolate when placing an object
-	- Town center occupy 4 spaces
+	- Town center does not correctly follow the mouse
 	- What are my classes doing?
 	- Disable UI buttons when structure limit for current level is reached

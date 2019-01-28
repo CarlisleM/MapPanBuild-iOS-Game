@@ -39,8 +39,6 @@ public class PlacementScript : MonoBehaviour {
 
                 if (!EventSystem.current.IsPointerOverGameObject())
                 {
-          //          PlaceStructures.DecisionMaker();
-
                     myInstance.DecisionMaker();
                 }
             }
