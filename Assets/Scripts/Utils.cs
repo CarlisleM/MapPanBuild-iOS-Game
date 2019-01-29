@@ -18,7 +18,7 @@ namespace GrassGame
 
             Debug.Log("xTemplatePos: " + templatePos.x + " yTemplatePos: " + templatePos.y);
 
-            return new Position((int)templatePos.x, templatePos.y);
+            return new Position((int)templatePos.x, (int)templatePos.y);
         }
     }
 }

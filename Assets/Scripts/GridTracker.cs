@@ -87,9 +87,19 @@ public class GridTracker : MonoBehaviour {
             tileLocation[pos.x+1, pos.y+1] = (int)entity;
         }
 
-        GameObject go = Instantiate(Resources.Load(tileType), new Vector3(pos.x, pos.y), Quaternion.identity) as GameObject;
+        if (tileSize == 4)
+        {
+            GameObject go = Instantiate(Resources.Load(tileType), new Vector3(pos.x, pos.y), Quaternion.identity) as GameObject;
+            Vector3 temp = new Vector3(0.5f, 0.5f, 0);
+            go.transform.position += temp;
+            historicalGroundGameObjects.Add(go);
+        }
+        else
+        {
+            GameObject go = Instantiate(Resources.Load(tileType), new Vector3(pos.x, pos.y), Quaternion.identity) as GameObject;
+            historicalGroundGameObjects.Add(go);
+        }
 
-        historicalGroundGameObjects.Add(go);
         historicalPositions.Add(pos);
     }
 
