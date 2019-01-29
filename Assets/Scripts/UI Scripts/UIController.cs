@@ -26,7 +26,7 @@ public class UIController : MonoBehaviour {
             beginner_canvas.SetActive(false);
         }
 
-        if (PlacementScript.isAnObjectSelected == true)
+        if (TemplateScript.isAnObjectSelected == true)
         {
             build_ui_button.SetActive(true);
             build_ui_panel.SetActive(false);

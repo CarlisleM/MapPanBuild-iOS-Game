@@ -9,7 +9,7 @@ public class PlacingStructureCamera : MonoBehaviour {
     void Update()
     {
 
-        GameObject go = GameObject.Find(PlacementScript.currentlySelectedObject); // Find currently selected object
+        GameObject go = GameObject.Find(TemplateScript.currentlySelectedObject); // Find currently selected object
         
         if (go)
         {

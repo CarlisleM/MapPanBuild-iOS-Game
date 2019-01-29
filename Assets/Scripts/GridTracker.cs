@@ -46,12 +46,18 @@ public class GridTracker : MonoBehaviour {
             }
         }
 
+        if ((int)entity == 2)
+        {
+            count = count / 4;
+        }
+
         return count;
     }
 
     // Instantiate a tile and subtract from the players money
     public static void CreateEntityWithCost(Position pos, Entities entity, string tileType, int tileSize, int cost)
     {
+        Debug.Log("Called CreateEntityWithCosT");
         AddTile(pos, entity, tileType, tileSize);
         StructureBehaviour.currentMoney = StructureBehaviour.currentMoney - cost;
     }
@@ -62,6 +68,7 @@ public class GridTracker : MonoBehaviour {
     // tileSize = number of grid squares it occupies
     public static void AddTile(Position pos, Entities entity, string tileType, int tileSize)
     {
+        Debug.Log("Called AddTile");
         if (tileSize == 1)
         {
             tileLocation[pos.x, pos.y] = (int)entity;
@@ -73,6 +80,7 @@ public class GridTracker : MonoBehaviour {
         }
         else
         {
+            Debug.Log("Entered the 4 tile segment");
             tileLocation[pos.x, pos.y] = (int)entity;
             tileLocation[pos.x+1, pos.y] = (int)entity;
             tileLocation[pos.x, pos.y+1] = (int)entity;

@@ -18,7 +18,7 @@ public class FarmIncome : MonoBehaviour {
 
     void Update()
     {
-            if (PlacementScript.isAnObjectSelected == false)
+            if (TemplateScript.isAnObjectSelected == false)
             {
                 if (Input.GetMouseButtonDown(0))
                 {

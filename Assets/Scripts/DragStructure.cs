@@ -20,7 +20,7 @@ public class DragStructure : MonoBehaviour {
 
 	void OnMouseDrag() {
         
-        if (PlacementScript.currentlySelectedObject == "TownCenterPlacer")
+        if (TemplateScript.currentlySelectedObject == "TownCenterPlacer")
         {
             mousePos = GetMouseWorldPos() - mOffset;
             transform.position = new Vector2(Mathf.Round(mousePos.x)+0.5f, Mathf.Round(mousePos.y)-0.5f);

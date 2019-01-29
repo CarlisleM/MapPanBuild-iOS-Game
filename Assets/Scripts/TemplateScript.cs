@@ -5,7 +5,7 @@ using System;
 using UnityEngine.EventSystems;
 using GrassGame;
 
-public class PlacementScript : MonoBehaviour {
+public class TemplateScript : MonoBehaviour {
 
     public GameObject Place;
 

@@ -12,11 +12,11 @@ public class CancelScript : MonoBehaviour {
 
     public void Cancel()
     {
-        PlacementScript.isAnObjectSelected = false;
+        TemplateScript.isAnObjectSelected = false;
         GameObject.Find("Main Camera").GetComponent<CameraHandler>().enabled = true;
 
         // Destroy whatever object is currenlty selected 
-        GameObject go = GameObject.Find(PlacementScript.currentlySelectedObject + "(Clone)");
+        GameObject go = GameObject.Find(TemplateScript.currentlySelectedObject + "(Clone)");
         if (go)
         {
             Destroy(go.gameObject);

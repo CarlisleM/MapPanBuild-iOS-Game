@@ -19,11 +19,11 @@ public class changeTemplateSprite : MonoBehaviour {
 
     void Update()
     {
-        if (PlacementScript.isAnObjectSelected == true)
+        if (TemplateScript.isAnObjectSelected == true)
         {
-            currentPos = GameObject.Find(PlacementScript.currentlySelectedObject + "(Clone)").transform.position;
+            currentPos = GameObject.Find(TemplateScript.currentlySelectedObject + "(Clone)").transform.position;
 
-            if (PlacementScript.currentlySelectedObject == "GroundPlacer")  // If placing ground
+            if (TemplateScript.currentlySelectedObject == "GroundPlacer")  // If placing ground
             {
                 spriteRenderer.sprite = StructureCantExist;
 
@@ -40,9 +40,9 @@ public class changeTemplateSprite : MonoBehaviour {
                     // Nothing
                 }
             }
-            else if (PlacementScript.currentlySelectedObject == "TownCenterPlacer")
+            else if (TemplateScript.currentlySelectedObject == "TownCenterPlacer")
             {
-                currentPos = GameObject.Find(PlacementScript.currentlySelectedObject + "(Clone)").transform.position;
+                currentPos = GameObject.Find(TemplateScript.currentlySelectedObject + "(Clone)").transform.position;
                 if (GridTracker.tileLocation[(int)currentPos.x, (int)currentPos.y+1] == 1 && GridTracker.tileLocation[(int)currentPos.x + 1, (int)currentPos.y+1] == 1 && GridTracker.tileLocation[(int)currentPos.x, (int)currentPos.y] == 1 && GridTracker.tileLocation[(int)currentPos.x + 1, (int)currentPos.y] == 1)    // If vacant tile
                 {
                 spriteRenderer.sprite = StructureValid;

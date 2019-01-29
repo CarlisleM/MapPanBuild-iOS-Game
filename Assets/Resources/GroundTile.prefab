@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4089622990977904}
   - component: {fileID: 212988681678546768}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: GroundTile
-  m_TagString: GroundTile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4955625456989104}
   - component: {fileID: 212240000345300950}
   - component: {fileID: 114600953092733088}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: FarmTile
-  m_TagString: FarmTile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cb94967f026d8040809142d212daa50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: 0
+  currentIncome: 0
 --- !u!212 &212240000345300950
 SpriteRenderer:
   m_ObjectHideFlags: 1

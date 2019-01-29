@@ -106,9 +106,6 @@ public class PlaceStructures : MonoBehaviour {
             }
         }
 
-        Debug.Log(validGridTile);
-        Debug.Log(GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y]);
-        Debug.Log(spawnPos.x + " " + spawnPos.y);
         if (GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == (int)Entities.EMPTY && validGridTile == true)
         {
             if (StructureBehaviour.gameStatus == "Beginning")
@@ -142,15 +139,23 @@ public class PlaceStructures : MonoBehaviour {
 
    void PlaceTownCenter()
     {
+        Debug.Log("PlaceTownCeter was pressed");
         if (GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y+1] == (int)Entities.GRASS && GridTracker.tileLocation[(int)spawnPos.x+1, (int)spawnPos.y+1] == (int)Entities.GRASS && GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == (int)Entities.GRASS && GridTracker.tileLocation[(int)spawnPos.x+1, (int)spawnPos.y] == (int)Entities.GRASS)
         {
+            Debug.Log("Passed the PlaceTownCenter check");
             Position spawnPosition = Utils.GetTemplatePosition();
+            Debug.Log("xSpawnPos: " + spawnPos.x + " ySpawnPos: " + spawnPos.y);
             GridTracker.CreateEntityWithCost(spawnPosition, Entities.TOWN_CENTER, "TownCenterTile", 4, 1000);
         }
     }
     
     public void DecisionMaker()
     {
+        Debug.Log("DecisionMaker was called");
+        Debug.Log(TemplateScript.currentlySelectedObject);
+        Debug.Log(GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y + 1]);
+        Debug.Log(GridTracker.GetEntityCount(Entities.TOWN_CENTER));
+        Debug.Log(StructureBehaviour.currentTownCenterLimit);
         if (StructureBehaviour.gameStatus == "Beginning")
         {
             Position pos = Utils.GetMousePosition();
@@ -163,23 +168,24 @@ public class PlaceStructures : MonoBehaviour {
         }
 
         // Determine which structure to place
-        if (PlacementScript.currentlySelectedObject == "GroundPlacer" && GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == 0 && GridTracker.GetEntityCount(Entities.GRASS) < StructureBehaviour.currentGroundLimit)
+        if (TemplateScript.currentlySelectedObject == "GroundPlacer" && GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == 0 && GridTracker.GetEntityCount(Entities.GRASS) < StructureBehaviour.currentGroundLimit)
         {
             PlaceGround();
-            Destroy(GameObject.Find(PlacementScript.currentlySelectedObject + "(Clone)"));
-            PlacementScript.isAnObjectSelected = false;
+            Destroy(GameObject.Find(TemplateScript.currentlySelectedObject + "(Clone)"));
+            TemplateScript.isAnObjectSelected = false;
         }
-        else if (PlacementScript.currentlySelectedObject == "FarmPlacer" && GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == 1 && GridTracker.GetEntityCount(Entities.FARM) < StructureBehaviour.currentFarmLimit)
+        else if (TemplateScript.currentlySelectedObject == "FarmPlacer" && GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == 1 && GridTracker.GetEntityCount(Entities.FARM) < StructureBehaviour.currentFarmLimit)
         {
             PlaceFarm();
-            Destroy(GameObject.Find(PlacementScript.currentlySelectedObject + "(Clone)"));
-            PlacementScript.isAnObjectSelected = false;
+            Destroy(GameObject.Find(TemplateScript.currentlySelectedObject + "(Clone)"));
+            TemplateScript.isAnObjectSelected = false;
         }
-        else if (PlacementScript.currentlySelectedObject == "TownCenterPlacer" && GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y+1] == 1 && GridTracker.GetEntityCount(Entities.TOWN_CENTER) < StructureBehaviour.currentTownCenterLimit)
+        else if (TemplateScript.currentlySelectedObject == "TownCenterPlacer" && GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y+1] == 1 && GridTracker.GetEntityCount(Entities.TOWN_CENTER) < StructureBehaviour.currentTownCenterLimit)
         {
+            Debug.Log("Passed the town center checks in decision maker");
             PlaceTownCenter();
-            Destroy(GameObject.Find(PlacementScript.currentlySelectedObject + "(Clone)"));
-            PlacementScript.isAnObjectSelected = false;
+            Destroy(GameObject.Find(TemplateScript.currentlySelectedObject + "(Clone)"));
+            TemplateScript.isAnObjectSelected = false;
         }
         else
         {
