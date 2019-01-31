@@ -101,7 +101,7 @@ public class PlaceStructures : MonoBehaviour {
             }
         }
 
-        if (GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == (int)Entities.EMPTY && validGridTile == true)
+        if (GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == (int)Entities.EMPTY && validGridTile == true && GridTracker.GetEntityCount(Entities.GRASS, 1) < StructureBehaviour.currentGroundLimit)
         {
             if (StructureBehaviour.gameStatus == "Beginning")
             {
@@ -112,8 +112,10 @@ public class PlaceStructures : MonoBehaviour {
             else
             {
                 // Place ground at template position
-                Position pos = Utils.GetTemplatePosition();
-                GridTracker.CreateEntityWithCost(pos, Entities.GRASS, "GroundTile", 1, 25);
+                Position spawnPosition = Utils.GetTemplatePosition();
+                GridTracker.CreateEntityWithCost(spawnPosition, Entities.GRASS, "GroundTile", 1, 25);
+                Destroy(GameObject.Find(TemplateScript.currentlySelectedObject + "(Clone)"));
+                TemplateScript.isAnObjectSelected = false;
             }
         }
         validGridTile = false;
@@ -121,20 +123,24 @@ public class PlaceStructures : MonoBehaviour {
 
     void PlaceFarm()
     {
-        if (GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == (int)Entities.GRASS)
+        if (GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == (int)Entities.GRASS && GridTracker.GetEntityCount(Entities.FARM, 1) < StructureBehaviour.currentFarmLimit)
         {
             Position spawnPosition = Utils.GetTemplatePosition();
             GridTracker.CreateEntityWithCost(spawnPosition, Entities.FARM, "FarmTile", 1, 100);
             farmList.Add(new Farm((int)spawnPos.x, (int)spawnPos.y, 0));
+            Destroy(GameObject.Find(TemplateScript.currentlySelectedObject + "(Clone)"));
+            TemplateScript.isAnObjectSelected = false;
         }
     }
 
    void PlaceTownCenter()
     {
-        if (GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y+1] == (int)Entities.GRASS && GridTracker.tileLocation[(int)spawnPos.x+1, (int)spawnPos.y+1] == (int)Entities.GRASS && GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == (int)Entities.GRASS && GridTracker.tileLocation[(int)spawnPos.x+1, (int)spawnPos.y] == (int)Entities.GRASS)
+        if (GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y+1] == (int)Entities.GRASS && GridTracker.tileLocation[(int)spawnPos.x+1, (int)spawnPos.y+1] == (int)Entities.GRASS && GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == (int)Entities.GRASS && GridTracker.tileLocation[(int)spawnPos.x+1, (int)spawnPos.y] == (int)Entities.GRASS && GridTracker.GetEntityCount(Entities.TOWN_CENTER, 4) < StructureBehaviour.currentTownCenterLimit)
         {
             Position spawnPosition = Utils.GetTemplatePosition();
             GridTracker.CreateEntityWithCost(spawnPosition, Entities.TOWN_CENTER, "TownCenterTile", 4, 1000);
+            Destroy(GameObject.Find(TemplateScript.currentlySelectedObject + "(Clone)"));
+            TemplateScript.isAnObjectSelected = false;
         }
     }
     
@@ -152,23 +158,17 @@ public class PlaceStructures : MonoBehaviour {
         }
 
         // Determine which structure to place
-        if (TemplateScript.currentlySelectedObject == "GroundPlacer" && GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == 0 && GridTracker.GetEntityCount(Entities.GRASS,1) < StructureBehaviour.currentGroundLimit)
+        if (TemplateScript.currentlySelectedObject == "GroundPlacer")
         {
             PlaceGround();
-            Destroy(GameObject.Find(TemplateScript.currentlySelectedObject + "(Clone)"));
-            TemplateScript.isAnObjectSelected = false;
         }
-        else if (TemplateScript.currentlySelectedObject == "FarmPlacer" && GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y] == 1 && GridTracker.GetEntityCount(Entities.FARM,1) < StructureBehaviour.currentFarmLimit)
+        else if (TemplateScript.currentlySelectedObject == "FarmPlacer")
         {
             PlaceFarm();
-            Destroy(GameObject.Find(TemplateScript.currentlySelectedObject + "(Clone)"));
-            TemplateScript.isAnObjectSelected = false;
         }
-        else if (TemplateScript.currentlySelectedObject == "TownCenterPlacer" && GridTracker.tileLocation[(int)spawnPos.x, (int)spawnPos.y+1] == 1 && GridTracker.GetEntityCount(Entities.TOWN_CENTER,4) < StructureBehaviour.currentTownCenterLimit)
+        else if (TemplateScript.currentlySelectedObject == "TownCenterPlacer")
         {
             PlaceTownCenter();
-            Destroy(GameObject.Find(TemplateScript.currentlySelectedObject + "(Clone)"));
-            TemplateScript.isAnObjectSelected = false;
         }
         else
         {

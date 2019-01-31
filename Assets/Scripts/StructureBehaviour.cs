@@ -15,7 +15,7 @@ public class StructureBehaviour : MonoBehaviour {
     public GameObject BeginnerCanvas;
 
     public static int currentLevel = 1;
-	public static int currentMoney = 900;   // 600
+	public static int currentMoney = 3000;   // 600
 
     public static int currentGroundLimit;
     public static int currentFarmLimit;
@@ -37,7 +37,7 @@ public class StructureBehaviour : MonoBehaviour {
 	}
 
     // Level limitations - (Ground, Town Centers, Farms)
-    public static StructureLimits level1 = new StructureLimits(25, 1, 4);
+    public static StructureLimits level1 = new StructureLimits(25, 2, 4);
 	public static StructureLimits level2 = new StructureLimits(35, 1, 5);
 	public static StructureLimits level3 = new StructureLimits(50, 2, 10);
 	public static StructureLimits level4 = new StructureLimits(75, 2, 17);

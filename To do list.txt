@@ -13,3 +13,5 @@ Game 	- if I build a farm do I delete the ground underneath it to improve perfor
 	- Grass shows valid even when not valid (dont want to repeat giant if statement)
 	- Be able to save and load progress
 	- Disable area around UI buttons so you dont place whenever clicking the button
+
+	- Town Center cant exist doesnt change sprite

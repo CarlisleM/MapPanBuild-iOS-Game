@@ -1715,7 +1715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69d617a9b2f3ea148934ce73f24324c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Place: {fileID: 0}
+  Place: {fileID: 301140364}
 --- !u!1 &1671657460
 GameObject:
   m_ObjectHideFlags: 0
@@ -2132,7 +2132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69d617a9b2f3ea148934ce73f24324c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Place: {fileID: 0}
+  Place: {fileID: 301140364}
 --- !u!1001 &1852377391
 Prefab:
   m_ObjectHideFlags: 0
@@ -2264,18 +2264,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1981297846}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1981297848}
-        m_MethodName: collectFarmIncome
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1981297846
@@ -2323,8 +2312,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentIncome: 0
-  CollectFarmIncomeButton: {fileID: 0}
-  currentIncomeText: {fileID: 0}
+  CollectFarmIncomeButton: {fileID: 1981297843}
+  currentIncomeText: {fileID: 2129230993}
 --- !u!1 &2065918407
 GameObject:
   m_ObjectHideFlags: 0
