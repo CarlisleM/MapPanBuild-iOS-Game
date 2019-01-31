@@ -7,11 +7,10 @@ Game 	- if I build a farm do I delete the ground underneath it to improve perfor
 	- Town center layer glitch, when to a valid spot then back to invalid it still shows valid
 	- Town center doesnt follow mouse directly
 	- What are my classes doing?
-	- Pets
+	- Pets (Egg that hatches after x amount of play time) - buy pet food (think like digimon) - mini games like neo pets, play using your pet
 	- Confirm 20 blocks at end of beginning
 	- Hovering over structures in build UI gives info about them and how many more you can build (or small number in the corner to indicate)
 	- Grass shows valid even when not valid (dont want to repeat giant if statement)
 	- Be able to save and load progress
 	- Disable area around UI buttons so you dont place whenever clicking the button
-
 	- Town Center cant exist doesnt change sprite

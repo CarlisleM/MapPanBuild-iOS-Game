@@ -61,24 +61,30 @@ public class FarmIncome : MonoBehaviour
         }
         return currentFarm;
     }
-    
-    private void Update()
+
+    void IncreaseFarmIncome()
     {
-        CheckFarm();
-        
-        for (i = 0; i < PlaceStructures.farmList.Count; i++)
+        elapsed += Time.deltaTime;
+
+        if (elapsed >= 1f)
         {
-            elapsed += Time.deltaTime;
-            if (elapsed >= 1f)
+            elapsed = elapsed % 1f;
+            for (i = 0; i < PlaceStructures.farmList.Count; i++)
             {
-                elapsed = elapsed % 1f;
                 if (PlaceStructures.farmList[i].farmIncome < 100)
                 {
                     PlaceStructures.farmList[i].farmIncome = PlaceStructures.farmList[i].farmIncome + 1;
                 }
             }
-        }
+        }        
+
         i = 0;
+    }
+    
+    private void Update()
+    {
+        CheckFarm();
+        IncreaseFarmIncome();
     }
 
 }

@@ -86,10 +86,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\ChangeTemplateSprite.cs" />
-    <Compile Include="Assets\Scripts\DragStructure.cs" />
     <Compile Include="Assets\Scripts\Entity.cs" />
     <Compile Include="Assets\Scripts\FarmIncome.cs" />
     <Compile Include="Assets\Scripts\GridTracker.cs" />
+    <Compile Include="Assets\Scripts\Pet.cs" />
     <Compile Include="Assets\Scripts\PlaceStructures.cs" />
     <Compile Include="Assets\Scripts\PlacingStructureCamera.cs" />
     <Compile Include="Assets\Scripts\Position.cs" />
@@ -102,6 +102,7 @@
     <Compile Include="Assets\Scripts\UI Scripts\CameraHandler.cs" />
     <Compile Include="Assets\Scripts\UI Scripts\CancelScript.cs" />
     <Compile Include="Assets\Scripts\UI Scripts\CurrentMoneyScript.cs" />
+    <Compile Include="Assets\Scripts\UI Scripts\DragStructure.cs" />
     <Compile Include="Assets\Scripts\UI Scripts\OpenStructures.cs" />
     <Compile Include="Assets\Scripts\UI Scripts\UIController.cs" />
     <Compile Include="Assets\Scripts\Utils.cs" />
