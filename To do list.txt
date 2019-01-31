@@ -3,6 +3,13 @@ Game 	- if I build a farm do I delete the ground underneath it to improve perfor
 	- Get timers working for farms and able to collect money
 	- Object goes from towncenter to farm following optimal route
 	- Camera interpolate when placing an object
-	- Town center does not correctly follow the mouse
-	- What are my classes doing?
 	- Disable UI buttons when structure limit for current level is reached
+	- Town center layer glitch, when to a valid spot then back to invalid it still shows valid
+	- Town center doesnt follow mouse directly
+	- What are my classes doing?
+	- Pets
+	- Confirm 20 blocks at end of beginning
+	- Hovering over structures in build UI gives info about them and how many more you can build (or small number in the corner to indicate)
+	- Grass shows valid even when not valid (dont want to repeat giant if statement)
+	- Be able to save and load progress
+	- Disable area around UI buttons so you dont place whenever clicking the button

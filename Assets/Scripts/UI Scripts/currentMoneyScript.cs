@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class currentMoneyScript : MonoBehaviour {
+public class CurrentMoneyScript : MonoBehaviour {
 
     Text currentMoneyText;
     

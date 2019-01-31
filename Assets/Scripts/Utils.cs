@@ -16,8 +16,6 @@ namespace GrassGame
         {
             Vector2 templatePos = GameObject.Find(TemplateScript.currentlySelectedObject + "(Clone)").transform.position;
 
-            Debug.Log("xTemplatePos: " + templatePos.x + " yTemplatePos: " + templatePos.y);
-
             return new Position((int)templatePos.x, (int)templatePos.y);
         }
     }

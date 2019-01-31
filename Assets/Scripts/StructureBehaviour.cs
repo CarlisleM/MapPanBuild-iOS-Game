@@ -15,7 +15,7 @@ public class StructureBehaviour : MonoBehaviour {
     public GameObject BeginnerCanvas;
 
     public static int currentLevel = 1;
-	public static int currentMoney = 600;
+	public static int currentMoney = 900;   // 600
 
     public static int currentGroundLimit;
     public static int currentFarmLimit;
@@ -37,7 +37,7 @@ public class StructureBehaviour : MonoBehaviour {
 	}
 
     // Level limitations - (Ground, Town Centers, Farms)
-    public static StructureLimits level1 = new StructureLimits(25, 5, 2);
+    public static StructureLimits level1 = new StructureLimits(25, 1, 4);
 	public static StructureLimits level2 = new StructureLimits(35, 1, 5);
 	public static StructureLimits level3 = new StructureLimits(50, 2, 10);
 	public static StructureLimits level4 = new StructureLimits(75, 2, 17);
@@ -45,7 +45,7 @@ public class StructureBehaviour : MonoBehaviour {
     
     void Update()
     {
-        if (GridTracker.GetEntityCount(Entities.GRASS) == 20)
+        if (GridTracker.GetEntityCount(Entities.GRASS,1) == 20)
         {
             if (gameStatus == "Beginning")
             {
@@ -69,12 +69,12 @@ public class StructureBehaviour : MonoBehaviour {
                 Debug.Log("You are able to upgrade to level 2.");
             }
         }
-        else if (currentLevel == 2 && currentGroundLimit == GridTracker.GetEntityCount(Entities.GRASS) && currentFarmLimit == GridTracker.GetEntityCount(Entities.FARM) && currentTownCenterLimit == GridTracker.GetEntityCount(Entities.TOWN_CENTER))
+        else if (currentLevel == 2 && currentGroundLimit == GridTracker.GetEntityCount(Entities.GRASS,1) && currentFarmLimit == GridTracker.GetEntityCount(Entities.FARM,1) && currentTownCenterLimit == GridTracker.GetEntityCount(Entities.TOWN_CENTER,4))
         {
             currentGroundLimit = level2.Ground_limit;
             currentFarmLimit = level2.Farm_limit;
             currentTownCenterLimit = level2.Town_center_limit;
-            if (currentMoney >= 3000 && currentGroundLimit == GridTracker.GetEntityCount(Entities.GRASS) && currentFarmLimit == GridTracker.GetEntityCount(Entities.FARM) && currentTownCenterLimit == GridTracker.GetEntityCount(Entities.TOWN_CENTER))
+            if (currentMoney >= 3000 && currentGroundLimit == GridTracker.GetEntityCount(Entities.GRASS,1) && currentFarmLimit == GridTracker.GetEntityCount(Entities.FARM,1) && currentTownCenterLimit == GridTracker.GetEntityCount(Entities.TOWN_CENTER,4))
             {
                 Debug.Log("You are able to upgrade to level 3.");
             }
@@ -84,7 +84,7 @@ public class StructureBehaviour : MonoBehaviour {
             currentGroundLimit = level3.Ground_limit;
             currentFarmLimit = level3.Farm_limit;
             currentTownCenterLimit = level3.Town_center_limit;
-            if (currentMoney >= 5000 && currentGroundLimit == GridTracker.GetEntityCount(Entities.GRASS) && currentFarmLimit == GridTracker.GetEntityCount(Entities.FARM) && currentTownCenterLimit == GridTracker.GetEntityCount(Entities.TOWN_CENTER))
+            if (currentMoney >= 5000 && currentGroundLimit == GridTracker.GetEntityCount(Entities.GRASS,1) && currentFarmLimit == GridTracker.GetEntityCount(Entities.FARM,1) && currentTownCenterLimit == GridTracker.GetEntityCount(Entities.TOWN_CENTER,4))
             {
                 Debug.Log("You are able to upgrade to level 4");
             }
@@ -94,7 +94,7 @@ public class StructureBehaviour : MonoBehaviour {
             currentGroundLimit = level4.Ground_limit;
             currentFarmLimit = level4.Farm_limit;
             currentTownCenterLimit = level4.Town_center_limit;
-            if (currentMoney >= 7000 && currentGroundLimit == GridTracker.GetEntityCount(Entities.GRASS) && currentFarmLimit == GridTracker.GetEntityCount(Entities.FARM) && currentTownCenterLimit == GridTracker.GetEntityCount(Entities.TOWN_CENTER))
+            if (currentMoney >= 7000 && currentGroundLimit == GridTracker.GetEntityCount(Entities.GRASS,1) && currentFarmLimit == GridTracker.GetEntityCount(Entities.FARM,1) && currentTownCenterLimit == GridTracker.GetEntityCount(Entities.TOWN_CENTER,4))
             {
                 Debug.Log("You are able to upgrade to level 5.");
             }
