@@ -168,63 +168,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &119916609
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1480778721219058, guid: 9c7aac6aef61afa468b5fcd7bdb80c7a, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 1480778721219058, guid: 9c7aac6aef61afa468b5fcd7bdb80c7a, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4405684457044502, guid: 9c7aac6aef61afa468b5fcd7bdb80c7a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4405684457044502, guid: 9c7aac6aef61afa468b5fcd7bdb80c7a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4405684457044502, guid: 9c7aac6aef61afa468b5fcd7bdb80c7a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4405684457044502, guid: 9c7aac6aef61afa468b5fcd7bdb80c7a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4405684457044502, guid: 9c7aac6aef61afa468b5fcd7bdb80c7a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4405684457044502, guid: 9c7aac6aef61afa468b5fcd7bdb80c7a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4405684457044502, guid: 9c7aac6aef61afa468b5fcd7bdb80c7a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4405684457044502, guid: 9c7aac6aef61afa468b5fcd7bdb80c7a, type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 212881747968694910, guid: 9c7aac6aef61afa468b5fcd7bdb80c7a,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
-  m_IsPrefabParent: 0
 --- !u!1 &184560557
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,7 +201,7 @@ Transform:
   - {fileID: 1852377392}
   - {fileID: 448663536}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &301140364
 GameObject:
@@ -307,13 +252,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cda367830cc4f114da44faa57224f68b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BuildUIPanel: {fileID: 0}
-  PlaceCancelPanel: {fileID: 0}
-  Button: {fileID: 733112351}
-  Button1: {fileID: 1438808196}
-  Button2: {fileID: 614671347}
-  Button3: {fileID: 1849622398}
-  validGridTile: 0
 --- !u!114 &301140367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -561,7 +499,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &408061393
 MonoBehaviour:
@@ -719,8 +657,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 33.04002, y: -0.15}
-  m_SizeDelta: {x: 64.19, y: 61.6}
+  m_AnchoredPosition: {x: -2.8900366, y: 1.589987}
+  m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &614671349
 MonoBehaviour:
@@ -786,15 +724,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.06666667}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 335302f1c846a4d4cb305e37d7d21b83, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -853,8 +791,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -33.549805, y: 33.424805}
-  m_SizeDelta: {x: 67.04, y: 66.85}
+  m_AnchoredPosition: {x: -35, y: 35}
+  m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &733112354
 MonoBehaviour:
@@ -1056,7 +994,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &749430237
 MonoBehaviour:
@@ -1235,7 +1173,7 @@ RectTransform:
   - {fileID: 1105337686}
   - {fileID: 1671657463}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1332,8 +1270,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1079.2998, y: 33.424805}
-  m_SizeDelta: {x: 267.26, y: 66.85}
+  m_AnchoredPosition: {x: 1108.2, y: 33.42505}
+  m_SizeDelta: {x: 209.41, y: 66.85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1105337687
 MonoBehaviour:
@@ -1347,14 +1285,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.06666667}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: e464f56b87aa51d44a0076d2c8a66be9, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1678,8 +1616,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 98.93, y: -0.15}
-  m_SizeDelta: {x: 63.85, y: 61.6}
+  m_AnchoredPosition: {x: 66.84, y: 1.59}
+  m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1438808198
 MonoBehaviour:
@@ -1745,15 +1683,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.06666667}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: cb76128538597f149977526a52420e30, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1778,34 +1716,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Place: {fileID: 0}
---- !u!1 &1501669564
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 119916609}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1501669565}
-  m_Layer: 0
-  m_Name: Missing Prefab
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1501669565
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 119916609}
-  m_GameObject: {fileID: 1501669564}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1671657460
 GameObject:
   m_ObjectHideFlags: 0
@@ -2123,8 +2033,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -32.89, y: 0.00000025332}
-  m_SizeDelta: {x: 63.85, y: 61.6}
+  m_AnchoredPosition: {x: -72.62003, y: 1.5899868}
+  m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1849622400
 MonoBehaviour:
@@ -2190,15 +2100,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.06666667}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 9f830ee27d51c39418984940a44cb30e, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2289,6 +2199,7 @@ GameObject:
   - component: {fileID: 1981297847}
   - component: {fileID: 1981297846}
   - component: {fileID: 1981297845}
+  - component: {fileID: 1981297848}
   m_Layer: 5
   m_Name: CollectFarmIncome
   m_TagString: Untagged
@@ -2353,7 +2264,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1981297846}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1981297848}
+        m_MethodName: collectFarmIncome
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1981297846
@@ -2389,6 +2311,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1981297843}
+--- !u!114 &1981297848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1981297843}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cb94967f026d8040809142d212daa50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentIncome: 0
+  CollectFarmIncomeButton: {fileID: 0}
+  currentIncomeText: {fileID: 0}
 --- !u!1 &2065918407
 GameObject:
   m_ObjectHideFlags: 0
@@ -2563,7 +2499,7 @@ RectTransform:
   - {fileID: 2065918408}
   - {fileID: 1426078220}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2579,11 +2515,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2101723259}
   - component: {fileID: 2101723264}
-  - component: {fileID: 2101723262}
   - component: {fileID: 2101723258}
   - component: {fileID: 2101723260}
   - component: {fileID: 2101723261}
-  - component: {fileID: 2101723263}
   - component: {fileID: 2101723267}
   m_Layer: 0
   m_Name: ScriptObject
@@ -2615,7 +2549,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2101723260
 MonoBehaviour:
@@ -2642,29 +2576,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentIncome: 0
---- !u!114 &2101723262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2101723257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34c790cb763d4664a9ef1e966acc2b6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2101723263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2101723257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a5cff2fa21832c4b8f7dddc3fa707c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollectFarmIncomeButton: {fileID: 733112351}
+  CollectFarmIncomeButton: {fileID: 1981297843}
+  currentIncomeText: {fileID: 2129230993}
 --- !u!114 &2101723264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2676,6 +2589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed5b9c8b2a1c284db79a24476150ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Button: {fileID: 1426078219}
 --- !u!114 &2101723267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2692,6 +2606,9 @@ MonoBehaviour:
   place_cancel_Panel: {fileID: 1671657460}
   beginner_canvas: {fileID: 2094843453}
   build_ui_button: {fileID: 733112351}
+  ground_button: {fileID: 1438808196}
+  farm_button: {fileID: 614671347}
+  town_center_button: {fileID: 1849622398}
 --- !u!1 &2129230991
 GameObject:
   m_ObjectHideFlags: 0

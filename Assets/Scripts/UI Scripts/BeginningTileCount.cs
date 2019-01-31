@@ -15,7 +15,7 @@ public class BeginningTileCount : MonoBehaviour {
 	void Update () {
         if (StructureBehaviour.gameStatus == "Beginning")
         {
-            currentTileCount.text = "Ground tiles remaining: " + (20-GridTracker.GetEntityCount(Entities.GRASS));
+            currentTileCount.text = "Ground tiles remaining: " + (20-GridTracker.GetEntityCount(Entities.GRASS,1));
         }
     }
     

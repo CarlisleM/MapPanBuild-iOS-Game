@@ -28,7 +28,7 @@ public class TemplateScript : MonoBehaviour {
         {
             PlaceStructures myInstance = Place.GetComponent<PlaceStructures>();
 
-            if (Input.GetMouseButtonDown(0) && GridTracker.GetEntityCount(Entities.GRASS) < 20)
+            if (Input.GetMouseButtonDown(0) && GridTracker.GetEntityCount(Entities.GRASS,1) < 20)
             {
 
                 if (!EventSystem.current.IsPointerOverGameObject())

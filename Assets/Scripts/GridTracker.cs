@@ -5,6 +5,9 @@ using GrassGame;
 
 public class GridTracker : MonoBehaviour {
 
+    [SerializeField]
+    public GameObject Button;
+
     // List containing GameObject's in the order they were created
     public static List<GameObject> historicalGroundGameObjects;
     
@@ -31,7 +34,7 @@ public class GridTracker : MonoBehaviour {
     }
 
     // Count the number of a specific tile type
-    public static int GetEntityCount(Entities entity)
+    public static int GetEntityCount(Entities entity, int structureSize)
     {
         int count = 0;
 
@@ -46,48 +49,40 @@ public class GridTracker : MonoBehaviour {
             }
         }
 
-        if ((int)entity == 2)
-        {
-            count = count / 4;
-        }
-
-        return count;
+        return count/structureSize;
     }
 
     // Instantiate a tile and subtract from the players money
-    public static void CreateEntityWithCost(Position pos, Entities entity, string tileType, int tileSize, int cost)
+    public static void CreateEntityWithCost(Position pos, Entities entity, string tileType, int structureSize, int cost)
     {
-        Debug.Log("Called CreateEntityWithCosT");
-        AddTile(pos, entity, tileType, tileSize);
+        AddTile(pos, entity, tileType, structureSize);
         StructureBehaviour.currentMoney = StructureBehaviour.currentMoney - cost;
     }
 
     // pos = position of tile               
     // entity = type of tile represented as an int    
     // tileType = type of tile as a string  
-    // tileSize = number of grid squares it occupies
-    public static void AddTile(Position pos, Entities entity, string tileType, int tileSize)
+    // structureSize = number of grid squares it occupies
+    public static void AddTile(Position pos, Entities entity, string tileType, int structureSize)
     {
-        Debug.Log("Called AddTile");
-        if (tileSize == 1)
+        if (structureSize == 1)
         {
             tileLocation[pos.x, pos.y] = (int)entity;
         }
-        else if (tileSize == 2)
+        else if (structureSize == 2)
         {
             tileLocation[pos.x, pos.y] = (int)entity;
             tileLocation[pos.x+1, pos.y] = (int)entity;
         }
         else
         {
-            Debug.Log("Entered the 4 tile segment");
             tileLocation[pos.x, pos.y] = (int)entity;
             tileLocation[pos.x+1, pos.y] = (int)entity;
             tileLocation[pos.x, pos.y+1] = (int)entity;
             tileLocation[pos.x+1, pos.y+1] = (int)entity;
         }
 
-        if (tileSize == 4)
+        if (structureSize == 4) // If placing the town center, place it off center to align with the grid
         {
             GameObject go = Instantiate(Resources.Load(tileType), new Vector3(pos.x, pos.y), Quaternion.identity) as GameObject;
             Vector3 temp = new Vector3(0.5f, 0.5f, 0);

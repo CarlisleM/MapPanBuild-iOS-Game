@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class changeTemplateSprite : MonoBehaviour {
+public class ChangeTemplateSprite : MonoBehaviour {
     
     public Sprite StructureValid; // Drag your first sprite here
     public Sprite StructureNotValid; // Drag your second sprite here
